@@ -617,7 +617,7 @@
                 <li><a href="#books">Books</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
-            <a href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" class="register-btn"> Students Registration</a>
+            <a href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" class="register-btn" target="blank"> Students Registration</a>
         </nav>
     </header>
 
@@ -629,21 +629,21 @@
                 <p>Expert teachers for <strong>Chemistry, Biology, Physics, Maths</strong>. Courses tailored for Cambridge, Edexcel & AQA boards. Notes, past papers & video lessons — all in one place.</p>
                 <div class="hero-buttons">
                     <a href="#courses" class="btn btn-primary">Explore Courses</a>
-                    <a href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" class="btn btn-secondary">Teachers Registration</a>
+                    <a href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" class="btn btn-secondary"target="blank">Teachers Registration</a>
                 </div>
             </div>
             <div class="hero-form">
-                <input type="text" placeholder="Student Name">
-                <input type="text" placeholder="Phone / WhatsApp">
-                <select>
-                    <option>Select Subject</option>
-                    <option>Chemistry</option>
-                    <option>Biology</option>
-                    <option>Physics</option>
-                    <option>Maths</option>
-                </select>
-                <button>Register Now</button>
-            </div>
+    <input type="text" id="studentName" placeholder="Student Name">
+    <input type="text" id="studentPhone" placeholder="Phone / WhatsApp">
+    <select id="subject">
+        <option value="">Select Subject</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Biology">Biology</option>
+        <option value="Physics">Physics</option>    
+        <option value="Maths">Maths</option>
+    </select>
+    <button onclick="sendWhatsApp()">Register Now</button>
+</div>
         </div>
     </section>
 
@@ -853,8 +853,30 @@
           <a href="https://ahmedshah-portfolio.netlify.app/"><p>Designed & Developed by <strong>Ahmed Shah</strong></a></p>
         </div>
     </footer>
+    <script>
+function sendWhatsApp() {
+    var name = document.getElementById("studentName").value;
+    var phone = document.getElementById("studentPhone").value;
+    var subject = document.getElementById("subject").value;
+
+    if(!name || !phone || !subject){
+        alert("Please fill all details!");
+        return;
+    }
+
+    // WhatsApp number with country code
+    var whatsappNumber = "923154901455"; 
+
+    var message = `Hello! New student registration:\nName: ${name}\nPhone: ${phone}\nSubject: ${subject}`;
+    var url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+}
+</script>
+
 </body>
 </html>
+
 
 
 
