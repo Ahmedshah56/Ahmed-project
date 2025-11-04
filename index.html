@@ -595,6 +595,15 @@
     height: 40px; /* adjust to match h1 size */
     width: auto;
 }
+.students-link {
+    color: #ff6600;       /* link color */
+    text-decoration: none; /* remove underline */
+    transition: color 0.3s; /* smooth hover effect */
+}
+
+.students-link:hover {
+    color: #3333ff;       /* color on hover */
+}
 
     </style>
 </head>
@@ -740,7 +749,11 @@
 
     <!-- Testimonials Section -->
     <section class="testimonials">
-     <h2><a href="https://wa.me/p/8505312562857365/923452048907"> What Our Students Say</a></h2>
+  <h2>
+    <a href="https://wa.me/p/8505312562857365/923452048907" class="students-link">
+        What Our Students Say
+    </a>
+</h2>
         <div class="testimonials-slider">
             <div class="testimonials-track">
                 <div class="testimonial-card">
@@ -876,6 +889,7 @@
     </script>
 </body>
 </html>
+
 
 
 
