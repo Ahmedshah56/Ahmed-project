@@ -632,18 +632,18 @@
                     <a href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" class="btn btn-secondary" target="_blank">Teachers Registration</a>
                 </div>
             </div>
-            <div class="hero-form">
-    <input type="text" id="studentName" placeholder="Student Name">
-    <input type="text" id="studentPhone" placeholder="Phone / WhatsApp">
-    <select id="subject">
-        <option value="">Select Subject</option>
-        <option value="Chemistry">Chemistry</option>
-        <option value="Biology">Biology</option>
-        <option value="Physics">Physics</option>    
-        <option value="Maths">Maths</option>
-    </select>
-    <button onclick="sendWhatsApp()">Register Now</button>
-</div>
+   <div class="hero-form">
+        <input type="text" id="studentName" placeholder="Student Name">
+        <input type="text" id="studentPhone" placeholder="Phone / WhatsApp">
+        <select id="subject">
+            <option value="">Select Subject</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Biology">Biology</option>
+            <option value="Physics">Physics</option>    
+            <option value="Maths">Maths</option>
+        </select>
+        <button id="registerBtn">Register Now</button>
+    </div>
         </div>
     </section>
 
@@ -847,6 +847,7 @@
         <a href="https://www.linkedin.com/in/chemistaacademy/" target="_blank" class="social-icon" title="LinkedIn">in</a>
     </div>
 </div>
+                
 
 
             </div>
@@ -856,29 +857,27 @@
           <a href="https://ahmedshah-portfolio.netlify.app/"><p>Designed & Developed by <strong>Ahmed Shah</strong></a></p>
         </div>
     </footer>
-    <script>
-function sendWhatsApp() {
-    var name = document.getElementById("studentName").value;
-    var phone = document.getElementById("studentPhone").value;
-    var subject = document.getElementById("subject").value;
+  <script>
+    document.getElementById("registerBtn").addEventListener("click", function() {
+        var name = document.getElementById("studentName").value;
+        var phone = document.getElementById("studentPhone").value;
+        var subject = document.getElementById("subject").value;
 
-    if(!name || !phone || !subject){
-        alert("Please fill all details!");
-        return;
-    }
+        if(!name || !phone || !subject){
+            alert("Please fill all details!");
+            return;
+        }
 
-    // WhatsApp number with country code
-    var whatsappNumber = "923154901455"; 
+        var whatsappNumber = "923154901455"; 
+        var message = `Hello! New student registration:\nName: ${name}\nPhone: ${phone}\nSubject: ${subject}`;
+        var url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-    var message = `Hello! New student registration:\nName: ${name}\nPhone: ${phone}\nSubject: ${subject}`;
-    var url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
-}
-</script>
-
+        window.open(url, "_blank");
+    });
+    </script>
 </body>
 </html>
+
 
 
 
