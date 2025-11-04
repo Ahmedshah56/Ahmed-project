@@ -473,11 +473,17 @@
             color: #ffd166;
         }
 
+.footer-section {
+    width: 100%;
+    text-align: center; /* center the entire block */
+    padding: 20px 0;
+}
+
 .social-links {
-    display: inline-flex;       /* inline-flex lets it center in parent */
-    justify-content: center;    
-    align-items: center;     
-    gap: 25px;                
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: center;     /* center vertically */
+    gap: 20px;
 }
 
 .social-icon {
@@ -485,10 +491,10 @@
     height: 50px;
     background-color: #ff6600;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+    display: flex;             /* make it a flex container */
+    justify-content: center;   /* center icon horizontally */
+    align-items: center;       /* center icon vertically */
+    border-radius: 50%;        /* make circle */
     font-size: 20px;
     text-decoration: none;
     transition: transform 0.3s, background-color 0.3s;
@@ -854,20 +860,16 @@
             </div>
             <div class="footer-section">
           <div class="footer-section">
-<h3 style="text-align: center;">Follow Us</h3>
-<div class="social-links">
-    <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="social-icon" title="YouTube">▶</a>
-    <a href="https://www.instagram.com/chemistaacademy/" target="_blank" class="social-icon" title="Instagram">📷</a>
-    <a href="https://www.facebook.com/chemistaacademy" target="_blank" class="social-icon" title="Facebook">f</a>
-    <a href="https://wa.me/03452048907" target="_blank" class="social-icon" title="WhatsApp">💬</a>
-    <a href="https://www.linkedin.com/in/chemistaacademy/" target="_blank" class="social-icon" title="LinkedIn">in</a>
+<div class="footer-section">
+    <h3>Follow Us</h3>
+    <div class="social-links">
+        <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="social-icon" title="YouTube">▶</a>
+        <a href="https://www.instagram.com/chemistaacademy/" target="_blank" class="social-icon" title="Instagram">📷</a>
+        <a href="https://www.facebook.com/chemistaacademy" target="_blank" class="social-icon" title="Facebook">f</a>
+        <a href="https://wa.me/03452048907" target="_blank" class="social-icon" title="WhatsApp">💬</a>
+        <a href="https://www.linkedin.com/in/chemistaacademy/" target="_blank" class="social-icon" title="LinkedIn">in</a>
+    </div>
 </div>
-
-
-</div>
-                
-
-
             </div>
         </div>
         <div class="footer-bottom">
@@ -895,6 +897,7 @@
     </script>
 </body>
 </html>
+
 
 
 
