@@ -491,14 +491,18 @@
     height: 50px;
     background-color: #ff6600;
     color: #fff;
-    display: flex;             /* make it a flex container */
-    justify-content: center;   /* center icon horizontally */
-    align-items: center;       /* center icon vertically */
-    border-radius: 50%;        /* make circle */
+    display: flex;             
+    justify-content: center;   
+    align-items: center;       
+    border-radius: 50%;        
     font-size: 20px;
     text-decoration: none;
+    line-height: 1;             /* important: removes extra vertical space */
+    padding: 0;                 /* remove extra padding */
+    box-sizing: border-box;
     transition: transform 0.3s, background-color 0.3s;
 }
+
 
 .social-icon:hover {
     transform: scale(1.1);
@@ -897,6 +901,7 @@
     </script>
 </body>
 </html>
+
 
 
 
