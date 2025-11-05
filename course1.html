@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>All Courses & Syllabi — Chemista Academy</title>
+  <meta name="description" content="Download syllabus outlines for IGCSE, O-Levels, GCSE and A-Levels (Cambridge / Edexcel / AQA). Seven subjects per board. AS & A2 split for A-Levels." />
+  <style>
+    :root{
+      --chem-blue:#1e3a5f;
+      --chem-blue-2:#2d5a8c;
+      --chem-accent:#ff6600;
+      --muted:#6b7280;
+      --card-shadow: 0 12px 30px rgba(20,30,40,0.06);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Inter','Segoe UI',Arial,sans-serif;
+      background:#f6f8fb;
+      color:#0f1724;
+      line-height:1.45;
+      scroll-behavior:smooth;
+    }
+    a{text-decoration:none;color:inherit}
+
+    /* header */
+    header{
+      background:linear-gradient(135deg,var(--chem-blue),var(--chem-blue-2));
+      color:white;padding:14px 0;
+      position:sticky;top:0;z-index:60;
+      box-shadow:0 3px 12px rgba(10,20,30,0.12)
+    }
+    .container{max-width:1200px;margin:0 auto;padding:0 18px}
+    .topbar{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:44px;width:auto;border-radius:6px}
+    .brand h1{font-size:18px}
+    .brand p{font-size:12px;opacity:.9}
+    .btn{padding:9px 14px;border-radius:8px;font-weight:700}
+    .btn-student{background:var(--chem-accent);color:white}
+    .btn-teacher{border:1px solid rgba(255,255,255,0.3);color:white}
+
+    /* back button */
+    .back-fixed{
+      position:fixed;left:16px;top:76px;
+      background:var(--chem-accent);color:white;
+      border:none;padding:10px 14px;border-radius:8px;
+      cursor:pointer;font-weight:600;
+      transition:transform .2s, box-shadow .2s;
+      box-shadow:0 6px 18px rgba(0,0,0,0.15);z-index:70;
+    }
+    .back-fixed:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* hero */
+    .hero{padding:28px 0 10px}
+    .hero-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .hero-left h2{font-size:22px;color:var(--chem-blue)}
+    .hero-left p{color:var(--muted);font-size:14px}
+    .badge{background:rgba(255,102,0,0.12);color:var(--chem-accent);
+      padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
+
+    /* search + tabs */
+    .controls{margin:18px 0 8px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .search{flex:1 1 320px;display:flex;align-items:center;gap:8px;background:white;border-radius:10px;padding:8px 10px;box-shadow:var(--card-shadow)}
+    .search input{border:0;outline:none;font-size:14px;width:100%}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap}
+    .tab{background:white;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700;border:1px solid transparent}
+    .tab.active{border-color:rgba(30,58,95,0.12);box-shadow:var(--card-shadow)}
+
+    /* accordion */
+    .accordion{margin-top:16px}
+    .board{background:white;border-radius:12px;box-shadow:var(--card-shadow);overflow:hidden;margin-bottom:12px;transition:transform .3s ease}
+    .board:hover{transform:translateY(-3px)}
+    .board-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer}
+    .board-left{display:flex;align-items:center;gap:12px}
+    .board-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--chem-blue),var(--chem-accent));display:flex;justify-content:center;align-items:center;color:white;font-weight:800;font-size:20px}
+    .board-title{font-weight:800;color:var(--chem-blue)}
+    .board-sub{font-size:13px;color:var(--muted)}
+    .chev{font-size:18px;color:var(--muted)}
+    .board-body{padding:14px 16px;display:none;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+    .subject{background:linear-gradient(180deg,white,#f9fbff);padding:12px;border-radius:10px;box-shadow:0 8px 22px rgba(20,30,40,0.04);display:flex;flex-direction:column;gap:8px;animation:fadeIn .5s ease}
+    .subject h4{margin:0;color:var(--chem-blue);font-size:15px}
+    .subject p{margin:0;color:var(--muted);font-size:13px}
+    .actions{margin-top:auto;display:flex;gap:8px}
+    .view-btn{background:white;border:1px solid rgba(30,58,95,0.15);padding:8px 10px;border-radius:8px;color:var(--chem-blue);font-weight:700;transition:all .2s}
+    .view-btn:hover{background:var(--chem-accent);color:white;border-color:var(--chem-accent)}
+    .dl-btn{background:var(--chem-blue);color:white;padding:8px 10px;border-radius:8px;font-weight:700;transition:background .2s}
+    .dl-btn:hover{background:var(--chem-blue-2)}
+    .sub-badge{background:rgba(30,58,95,0.06);color:var(--chem-blue);padding:4px 8px;border-radius:999px;font-weight:700;font-size:12px}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+    .note{margin:18px 0;color:var(--muted);font-size:13px}
+
+    @media(max-width:820px){
+      .hero-inner{flex-direction:column;align-items:flex-start}
+      .back-fixed{top:86px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container topbar">
+    <div class="brand">
+      <img src="./WhatsApp Image 2025-11-03 at 11.50.57 PM.jpeg" alt="Chemista Academy">
+      <div>
+        <h1>Chemista Academy</h1>
+        <p>All Boards — Courses & Syllabus</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <a class="btn btn-student" href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" target="_blank">Student Registration</a>
+      <a class="btn btn-teacher" href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" target="_blank">Teacher Registration</a>
+    </div>
+  </div>
+</header>
+
+<!-- ✅ Back button now works reliably -->
+<a href="index.html" class="back-fixed">← Back</a>
+
+
+<main class="container hero" role="main">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h2>Courses & Syllabus — 7 Subjects per Board</h2>
+      <p>Download subject-wise syllabus outlines for each board. For A-Levels each subject has AS and A2 PDFs.</p>
+    </div>
+    <div class="hero-right"><span class="badge">Updated: Nov 2025</span></div>
+  </div>
+
+  <div class="controls">
+    <div class="search" role="search">
+      🔍 <input id="q" type="search" placeholder="Search subject or board (e.g. 'Chemistry' or 'Cambridge')" />
+    </div>
+    <div class="tabs" role="tablist" aria-label="Filter boards">
+      <div class="tab active" data-filter="all">All</div>
+      <div class="tab" data-filter="cambridge">Cambridge</div>
+      <div class="tab" data-filter="edexcel">Edexcel</div>
+      <div class="tab" data-filter="aqa">AQA</div>
+    </div>
+  </div>
+
+  <section class="accordion" id="accordion"></section>
+
+  <p class="note">
+    💡 <b>Instructions:</b> Place your PDF files in the <code>/downloads/</code> folder using the naming pattern:
+    <br>• Non A-Levels: <code>downloads/{board-id}-{subject}.pdf</code>
+    <br>• A-Levels AS/A2: <code>downloads/{board-id}-as-{subject}.pdf</code> and <code>downloads/{board-id}-a2-{subject}.pdf</code>
+  </p>
+</main>
+
+<script>
+function goBack() {
+  if (document.referrer !== "") {
+    history.back();
+  } else {
+    window.location.href = "index.html"; // fallback to homepage
+  }
+}
+
+// COURSE DATA
+const boards = [
+  { id: 'igcse-cambridge', title: 'IGCSE — Cambridge', tag: 'cambridge', level: 'IGCSE', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'] },
+  { id: 'olevel-cambridge', title: 'O-Levels — Cambridge', tag: 'cambridge', level: 'O-Levels', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'] },
+  { id: 'igcse-edexcel', title: 'IGCSE — Edexcel', tag: 'edexcel', level: 'IGCSE', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'] },
+  { id: 'gcse-aqa', title: 'GCSE — AQA', tag: 'aqa', level: 'GCSE', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'] },
+  { id: 'alevel-cambridge', title: 'A-Levels — Cambridge', tag: 'cambridge', level: 'A-Levels', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'], split: true },
+  { id: 'alevel-edexcel', title: 'A-Levels — Edexcel', tag: 'edexcel', level: 'A-Levels', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'], split: true },
+  { id: 'alevel-aqa', title: 'A-Levels — AQA', tag: 'aqa', level: 'A-Levels', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'], split: true }
+];
+
+const accordion = document.getElementById('accordion');
+
+function slug(s){
+  return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+}
+
+boards.forEach(board=>{
+  const boardEl=document.createElement('div');
+  boardEl.className='board';
+  boardEl.dataset.tag=board.tag;
+
+  const head=document.createElement('div');
+  head.className='board-head';
+  head.innerHTML=`
+    <div class="board-left">
+      <div class="board-icon">${board.level.slice(0,2).toUpperCase()}</div>
+      <div>
+        <div class="board-title">${board.title}</div>
+        <div class="board-sub">${board.level} — ${board.subjects.length} subjects</div>
+      </div>
+    </div>
+    <div class="chev">▾</div>
+  `;
+  const body=document.createElement('div');
+  body.className='board-body';
+
+  board.subjects.forEach(sub=>{
+    const subj=document.createElement('div');
+    subj.className='subject';
+    if(board.split){
+      const asFile=`downloads/${slug(board.id)}-as-${slug(sub)}.pdf`;
+      const a2File=`downloads/${slug(board.id)}-a2-${slug(sub)}.pdf`;
+      subj.innerHTML=`
+        <h4>${sub} <span class="sub-badge">AS</span></h4>
+        <p>AS syllabus outline — first year.</p>
+        <div class="actions">
+          <a class="view-btn" href="${asFile}" target="_blank">View AS</a>
+          <a class="dl-btn" href="${asFile}" download>Download AS</a>
+        </div>
+        <hr style="border:none;border-top:1px solid rgba(15,23,36,0.05)">
+        <h4>${sub} <span class="sub-badge">A2</span></h4>
+        <p>A2 syllabus outline — second year.</p>
+        <div class="actions">
+          <a class="view-btn" href="${a2File}" target="_blank">View A2</a>
+          <a class="dl-btn" href="${a2File}" download>Download A2</a>
+        </div>
+      `;
+    }else{
+      const file=`downloads/${slug(board.id)}-${slug(sub)}.pdf`;
+      subj.innerHTML=`
+        <h4>${sub}</h4>
+        <p>Syllabus outline & topics for ${sub}.</p>
+        <div class="actions">
+          <a class="view-btn" href="${file}" target="_blank">View</a>
+          <a class="dl-btn" href="${file}" download>Download</a>
+        </div>
+      `;
+    }
+    body.appendChild(subj);
+  });
+
+  boardEl.appendChild(head);
+  boardEl.appendChild(body);
+  accordion.appendChild(boardEl);
+
+  head.addEventListener('click',()=>{
+    const open=body.style.display==='grid';
+    document.querySelectorAll('.board-body').forEach(b=>b.style.display='none');
+    document.querySelectorAll('.chev').forEach(c=>c.textContent='▾');
+    if(!open){body.style.display='grid';head.querySelector('.chev').textContent='▴';}
+  });
+});
+
+const q=document.getElementById('q');
+const tabs=document.querySelectorAll('.tab');
+function filter(text='',boardFilter='all'){
+  const t=text.trim().toLowerCase();
+  document.querySelectorAll('.board').forEach(board=>{
+    const tag=board.dataset.tag;
+    if(boardFilter!=='all'&&boardFilter!==tag){board.style.display='none';return;}
+    let found=false;
+    board.querySelectorAll('.subject').forEach(subj=>{
+      const title=subj.querySelector('h4').textContent.toLowerCase();
+      subj.style.display=!t||title.includes(t)?'':'none';
+      if(!t||title.includes(t))found=true;
+    });
+    board.style.display=found?'':'none';
+  });
+}
+q.addEventListener('input',()=>filter(q.value,document.querySelector('.tab.active').dataset.filter));
+tabs.forEach(tab=>tab.addEventListener('click',()=>{
+  tabs.forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  filter(q.value,tab.dataset.filter);
+}));
+</script>
+</body>
+</html>

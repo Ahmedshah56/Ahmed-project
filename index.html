@@ -5,915 +5,425 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chemista Academy - Learn Smart. Score Higher in A-Levels</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%);
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: slideInLeft 0.8s ease;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: #ffd166;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #1e3a5f;
-            font-size: 20px;
-        }
-
-        .logo-text h1 {
-            font-size: 20px;
-            margin-bottom: 2px;
-        }
-
-        .logo-text p {
-            font-size: 11px;
-            opacity: 0.9;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            animation: slideInRight 0.8s ease;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 14px;
-        }
-
-        nav ul li a:hover {
-            color: #ffd166;
-        }
-
-        .register-btn {
-            background: #ffd166;
-            color: #1e3a5f;
-            padding: 10px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: pulse 2s infinite;
-        }
-
-        .register-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 209, 102, 0.4);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%);
-            color: white;
-            padding: 60px 20px;
-            animation: fadeIn 1s ease;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-text h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            animation: slideInLeft 1s ease;
-        }
-
-        .hero-text p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            animation: slideInLeft 1.2s ease;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            animation: slideInLeft 1.4s ease;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: #ffd166;
-            color: #1e3a5f;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        }
-
-        .hero-form {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: slideInRight 1s ease;
-        }
-
-        .hero-form input, .hero-form select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .hero-form button {
-            width: 100%;
-            padding: 12px;
-            background: #ffd166;
-            color: #1e3a5f;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .hero-form button:hover {
-            background: #ffbd33;
-            transform: translateY(-2px);
-        }
-
-        /* Features */
-        .features {
-            display: flex;
-            gap: 20px;
-            max-width: 1200px;
-            margin: -30px auto 40px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            flex: 1;
-            text-align: center;
-            transition: transform 0.3s;
-            animation: fadeInUp 1s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: #ffd166;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 28px;
-        }
-
-        /* Subjects Section */
-        .subjects {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .subjects h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #1e3a5f;
-            animation: fadeIn 1s ease;
-        }
-
-        .subjects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .subject-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.3s;
-            animation: fadeInUp 1.2s ease;
-        }
-
-        .subject-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .subject-card h3 {
-            color: #1e3a5f;
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .subject-card p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* Video Section */
-        .video-section {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .video-section h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #1e3a5f;
-            text-align: center;
-            animation: fadeIn 1s ease;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: zoomIn 1s ease;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Teachers Section */
-        .teachers {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .teachers h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #1e3a5f;
-            animation: fadeIn 1s ease;
-        }
-
-        .teachers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .teacher-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.3s;
-            animation: fadeInUp 1.4s ease;
-        }
-
-        .teacher-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .teacher-card h3 {
-            color: #1e3a5f;
-            margin-bottom: 8px;
-            font-size: 20px;
-        }
-
-        .teacher-card p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%);
-            border-radius: 15px;
-        }
-
-        .testimonials h2 {
-            font-size: 28px;
-            margin-bottom: 40px;
-            color: white;
-            text-align: center;
-            animation: fadeIn 1s ease;
-        }
-
-        .testimonials-slider {
-            position: relative;
-            overflow: hidden;
-            height: 280px;
-        }
-
-        .testimonials-track {
-            display: flex;
-            gap: 20px;
-            animation: slide 20s linear infinite;
-        }
-
-        .testimonial-card {
-            min-width: 350px;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ffd166, #ffbd33);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-            font-weight: bold;
-        }
-
-        .testimonial-info h4 {
-            color: #1e3a5f;
-            margin-bottom: 3px;
-        }
-
-        .testimonial-info p {
-            color: #666;
-            font-size: 13px;
-        }
-
-        .testimonial-text {
-            color: #444;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .stars {
-            color: #ffd166;
-            margin-bottom: 10px;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 50px 20px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 20px;
-            color: #ffd166;
-            font-size: 18px;
-        }
-
-        .footer-section p, .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: #ffd166;
-        }
-
-.footer-section {
-    width: 100%;
-    text-align: center; /* center the entire block */
-    padding: 20px 0;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center; /* center horizontally */
-    align-items: center;     /* center vertically */
-    gap: 20px;
-}
-
-.social-icon {
-    width: 50px;
-    height: 50px;
-    background-color: #ff6600;
-    color: #fff;
-    display: flex;             
-    justify-content: center;   
-    align-items: center;       
-    border-radius: 50%;        
-    font-size: 20px;
-    text-decoration: none;
-    line-height: 1;             /* important: removes extra vertical space */
-    padding: 0;                 /* remove extra padding */
-    box-sizing: border-box;
-    transition: transform 0.3s, background-color 0.3s;
-}
-
-
-.social-icon:hover {
-    transform: scale(1.1);
-    background-color: #333;
-}
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #999;
-            animation: fadeIn 2s ease;
-        }
-
-        .footer-bottom p {
-            margin-bottom: 5px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .features {
-                flex-direction: column;
-            }
-
-            .testimonial-card {
-                min-width: 300px;
-            }
-        }
-        .logo-img {
-    width: 50px;  /* adjust as needed */
-    height: auto; /* keeps aspect ratio */
-    display: block;
-}
-.logo-img {
-    height: 40px; /* adjust to match h1 size */
-    width: auto;
-}
-.students-link {
-    color: #ff6600;       /* link color */
-    text-decoration: none; /* remove underline */
-    transition: color 0.3s; /* smooth hover effect */
-}
-
-.students-link:hover {
-    color: #3333ff;       /* color on hover */
-}
-
+        /* --- Reset & base --- */
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;background:#f5f5f5;color:#222}
+        a{color:inherit}
+
+        /* --- Header --- */
+        header{background:linear-gradient(135deg,#1e3a5f 0%,#2d5a8c 100%);color:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+        .logo{display:flex;align-items:center;gap:12px}
+        .logo-img{height:40px;width:auto;display:block}
+        .logo-text h1{font-size:18px}
+        .logo-text p{font-size:12px;opacity:.9}
+        .nav-links{display:flex;gap:20px;align-items:center}
+        .nav-links a{color:#fff;text-decoration:none;font-size:14px}
+        .cta-group{display:flex;gap:10px}
+        .btn{padding:9px 16px;border-radius:6px;text-decoration:none;font-weight:600}
+        .btn-student{background:#ffd166;color:#1e3a5f}
+        .btn-teacher{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.2)}
+
+        /* --- Hero --- */
+        .hero{background:linear-gradient(135deg,#1e3a5f 0%,#2d5a8c 100%);color:#fff;padding:40px 0}
+        .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+        .hero h2{font-size:30px;margin-bottom:12px}
+        .hero p{line-height:1.6;opacity:.95}
+        .hero-form{background:#fff;padding:22px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+        .hero-form input,.hero-form select{width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px}
+        .hero-form button{width:100%;padding:11px;border-radius:6px;border:none;background:#ffd166;color:#1e3a5f;font-weight:700}
+
+        /* --- Feature cards --- */
+        .features{display:flex;gap:18px;margin:-30px auto 30px;max-width:1200px;padding:0 20px}
+        .feature-card{flex:1;background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 18px rgba(0,0,0,.08);text-align:center}
+
+        /* --- Generic slider --- */
+        .slider{position:relative;overflow:hidden;border-radius:10px}
+        .slider-track{display:flex;transition:transform .6s ease}
+        .slide{min-width:100%;flex-shrink:0}
+        .slider-controls{position:absolute;left:12px;right:12px;top:50%;transform:translateY(-50%);display:flex;justify-content:space-between;pointer-events:none}
+        .slider-btn{pointer-events:all;background:rgba(0,0,0,.35);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
+
+        /* --- Testimonials horizontal small cards --- */
+        .testimonials-section{max-width:1200px;margin:50px auto;padding:0 20px}
+        .test-cards{display:flex;gap:14px;overflow:hidden}
+        .test-card{min-width:320px;background:#fff;padding:18px;border-radius:10px;box-shadow:0 5px 18px rgba(0,0,0,.08)}
+        .stars{color:#ffd166;margin-bottom:8px}
+
+        /* --- Students image slider (multiview) --- */
+        .students-slider{max-width:1200px;margin:30px auto;padding:0 20px}
+        .students-track{display:flex;gap:12px;transition:transform .6s ease}
+        .student-thumb{width:calc((100% - 48px)/4);flex-shrink:0;border-radius:8px;overflow:hidden}
+        .student-thumb img{width:100%;display:block}
+
+        /* --- Teachers 6 boxes grid --- */
+        .teachers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;max-width:1200px;margin:40px auto;padding:0 20px}
+        .teacher-card{background:#fff;padding:16px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.06);text-align:center}
+        .teacher-card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+        .teacher-card h4{color:#1e3a5f;margin-bottom:6px}
+        .teacher-card p{font-size:13px;color:#666}
+
+        /* --- FAQs Accordion --- */
+        .faqs{max-width:900px;margin:40px auto;padding:0 20px}
+        .faq{background:#fff;border-radius:8px;padding:14px 18px;margin-bottom:10px;box-shadow:0 5px 18px rgba(0,0,0,.06)}
+        .faq h4{cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq p{margin-top:8px;color:#444;display:none}
+
+        /* --- Footer --- */
+        footer{background:#0f1720;color:#cbd5e1;padding:40px 0;margin-top:40px}
+        .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1200px;margin:0 auto;padding:0 20px}
+        .footer-grid h3{color:#ffd166;margin-bottom:10px}
+        .footer-grid a{display:block;color:#cbd5e1;text-decoration:none;margin-bottom:8px}
+        .newsletter input{width:100%;padding:10px;border-radius:6px;border:1px solid #2b3440;margin-bottom:8px}
+        .newsletter button{padding:9px 12px;border-radius:6px;background:#ffd166;color:#1e3a5f;border:none;font-weight:700}
+        .footer-bottom{text-align:center;margin-top:18px;color:#94a3b8}
+
+        /* --- Responsive tweaks --- */
+        @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.student-thumb{width:calc((100% - 36px)/3)}.test-card{min-width:260px}}
+        @media(max-width:600px){.student-thumb{width:calc((100% - 24px)/2)}.cta-group{display:flex;flex-direction:column}}
+
+        /* small helpers */
+        .muted{color:#666}
+        .center{text-align:center}
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+
+<header>
+    <div class="container">
         <nav>
             <div class="logo">
-                <div class="logo-icon"><img src="./WhatsApp Image 2025-11-03 at 11.50.57 PM.jpeg" alt="CA Logo" class="logo-img"></div>
+                <img src="./WhatsApp Image 2025-11-03 at 11.50.57 PM.jpeg" alt="Chemista Academy" class="logo-img">
                 <div class="logo-text">
                     <h1>Chemista Academy</h1>
-                   <p>A-Levels • O-Levels / IGCSE / GCSE</p>
-
+                    <p>A-Levels • O-Levels / IGCSE / GCSE</p>
                 </div>
             </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#notes">Notes</a></li>
-                <li><a href="#books">Books</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-            <a href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" class="register-btn" target="_blank"> Students Registration</a>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h3>Learn Smart. Score Higher in A-Levels. Olevels/ IGCSE/ GCSE</h3>
-                <p>Expert teachers for <strong>Chemistry, Biology, Physics, Maths</strong>. Courses tailored for Cambridge, Edexcel & AQA boards. Notes, past papers & video lessons — all in one place.</p>
-                <div class="hero-buttons">
-                    <a href="#courses" class="btn btn-primary">Explore Courses</a>
-                    <a href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" class="btn btn-secondary" target="_blank">Teachers Registration</a>
-                </div>
-            </div>
-   <div class="hero-form">
-        <input type="text" id="studentName" placeholder="Student Name">
-        <input type="text" id="studentPhone" placeholder="Phone / WhatsApp">
-        <select id="subject">
-            <option value="">Select Subject</option>
-            <option value="Chemistry">Chemistry</option>
-            <option value="Biology">Biology</option>
-            <option value="Physics">Physics</option>    
-            <option value="Maths">Maths</option>
-        </select>
-        <button id="registerBtn">Register Now</button>
-    </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <div class="features">
-        <div class="feature-card">
-            <div class="feature-icon">A+</div>
-            <h3>Expert Teachers</h3>
-            <p>10+ years experience</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">📄</div>
-            <h3>PDF Notes</h3>
-            <p>Comprehensive materials</p>
-        </div>
-    </div>
-
-    <!-- Subjects Section -->
-    <section class="subjects" id="courses">
-        <h2>Subjects</h2>
-        <div class="subjects-grid">
-            <div class="subject-card">
-                <h3>Chemistry</h3>
-                <p>Theory, Practical & Past Papers</p>
-            </div>
-            <div class="subject-card">
-                <h3>Biology</h3>
-                <p>Notes & Video Lessons</p>
-            </div>
-            <div class="subject-card">
-                <h3>Physics</h3>
-                <p>Concepts & Problems</p>
-            </div>
-            <div class="subject-card">
-                <h3>Maths</h3>
-                <p>Exam Techniques & Practice</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Section -->
-    <section class="video-section">
-        <h2>
-    <a href="https://wa.me/p/27785041631086945/923452048907" class="students-link">Student Achievements</a> & Class Video</h2>
-        <div class="video-container">
-    <iframe 
-        src="https://www.youtube.com/embed/7Uy_yonHhAg" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen>
-    </iframe>
-</div>
-
-    </section>
-
-    <!-- Notes Section -->
-    <section class="subjects" id="notes">
-        <h2>Free Notes & Past Papers</h2>
-        <div class="subjects-grid">
-            <div class="subject-card">
-                <h3>Chemistry — Notes (PDF)</h3>
-            </div>
-            <div class="subject-card">
-                <h3>Chemistry — Past Papers</h3>
-            </div>
-            <div class="subject-card">
-                <h3>Biology — Notes (PDF)</h3>
-            </div>
-            <div class="subject-card">
-                <h3>Physics — Notes (PDF)</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- Teachers Section -->
-    <section class="teachers" id="teachers">
-        <h2>Teachers</h2>
-        <div class="teachers-grid">
-            <div class="teacher-card">
-                <h3>Dr. A. Khan</h3>
-                <p>Chemistry — 10+ years experience</p>
-            </div>
-            <div class="teacher-card">
-                <h3>Ms. S. Ahmed</h3>
-                <p>Biology — A-Level specialist</p>
-            </div>
-            <div class="teacher-card">
-                <h3>Mr. Z. Ali</h3>
-                <p>Physics & Maths</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-  <h2>
-    <a href="https://wa.me/p/8505312562857365/923452048907" class="students-link">
-        What Our Students Say
-    </a>
-</h2>
-        <div class="testimonials-slider">
-            <div class="testimonials-track">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">SA</div>
-                        <div class="testimonial-info">
-                            <h4>Sarah Ahmed</h4>
-                            <p>Chemistry Student</p>
-                        </div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"The teaching method is exceptional! I improved my grade from B to A* in just 6 months. The notes and past papers are incredibly helpful."</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">MR</div>
-                        <div class="testimonial-info">
-                            <h4>Muhammad Raza</h4>
-                            <p>Physics Student</p>
-                        </div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Best academy for A-Levels! Teachers are very experienced and explain complex concepts in simple ways. Highly recommended!"</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">AK</div>
-                        <div class="testimonial-info">
-                            <h4>Ayesha Khan</h4>
-                            <p>Biology Student</p>
-                        </div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"The video lessons are so clear and easy to understand. I can study anytime and the teachers are always available for questions."</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">HA</div>
-                        <div class="testimonial-info">
-                            <h4>Hassan Ali</h4>
-                            <p>Maths Student</p>
-                        </div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Outstanding teaching quality! The practice papers helped me ace my exams. Got A* in all subjects thanks to Chemista Academy."</p>
-                </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">SA</div>
-                        <div class="testimonial-info">
-                            <h4>Sarah Ahmed</h4>
-                            <p>Chemistry Student</p>
-                        </div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"The teaching method is exceptional! I improved my grade from B to A* in just 6 months. The notes and past papers are incredibly helpful."</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">MR</div>
-                        <div class="testimonial-info">
-                            <h4>Muhammad Raza</h4>
-                            <p>Physics Student</p>
-                        </div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Best academy for A-Levels! Teachers are very experienced and explain complex concepts in simple ways. Highly recommended!"</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Chemista Academy</h3>
-                <p>Cambridge • Edexcel • AQA</p>
-                <p>Expert teachers for Chemistry, Biology, Physics, and Maths</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#courses">Courses</a>
+            <div class="nav-links">
                 <a href="#notes">Notes</a>
                 <a href="#teachers">Teachers</a>
+                <a href="https://wa.me/03452048907" target="_blank">Contact</a>
             </div>
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-          <a href="https://wa.me/923452048907" target="_blank">📞 +92 345 2048907</a>
-           <a href="chemistaacademy@gmail.com">📧 chemistaacademy@gmail.com</a>
-<a href="https://maps.app.goo.gl/Jbg7h4gNXge6eFCD9" target="_blank">📍 Pakistan</a>
-            
+
+            <div class="cta-group">
+                <!-- Student + Teacher register buttons on top -->
+                <a href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" class="btn btn-student" target="_blank">Student Registration</a>
+                <a href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" class="btn btn-teacher" target="_blank">Teacher Registration</a>
             </div>
-            <div class="footer-section">
-          <div class="footer-section">
-<div class="footer-section">
-    <h3>Follow Us</h3>
-    <div class="social-links">
-        <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="social-icon" title="YouTube">▶</a>
-        <a href="https://www.instagram.com/chemistaacademy/" target="_blank" class="social-icon" title="Instagram">📷</a>
-        <a href="https://www.facebook.com/chemistaacademy" target="_blank" class="social-icon" title="Facebook">f</a>
-        <a href="https://wa.me/03452048907" target="_blank" class="social-icon" title="WhatsApp">💬</a>
-        <a href="https://www.linkedin.com/in/chemistaacademy/" target="_blank" class="social-icon" title="LinkedIn">in</a>
+        </nav>
     </div>
-</div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <h2>Learn Smart. Score Higher in A-Levels, IGCSE & GCSE</h2>
+                <p>Expert teachers for <strong>Chemistry, Biology, Physics, Maths</strong>. Courses tailored for Cambridge, Edexcel & AQA boards. Notes, past papers & video lessons — all in one place.</p>
+                <div style="margin-top:16px">
+                    <a href="./course1.html" target="_blank" class="btn btn-student">Explore Courses</a>
+                    <a href="#teachers" class="btn btn-teacher">Meet Teachers</a>
+                </div>
+            </div>
+
+            <div>
+                <div class="hero-form">
+                    <input type="text" id="studentName" placeholder="Student Name">
+                    <input type="text" id="studentPhone" placeholder="Phone / WhatsApp">
+                    <select id="subject">
+                        <option value="">Select Subject</option>
+                        <option>Chemistry</option>
+                        <option>Biology</option>
+                        <option>Physics</option>
+                        <option>Maths</option>
+                    </select>
+                    <button id="registerBtn">Register & Message on WhatsApp</button>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Chemista Academy. All Rights Reserved.</p>
-          <a href="https://ahmedshah-portfolio.netlify.app/"><p>Designed & Developed by <strong>Ahmed Shah</strong></a></p>
+    </div>
+</section>
+
+<!-- Features -->
+<div class="features container">
+    <div class="feature-card"><div style="font-size:20px;margin-bottom:8px">A+</div><h3>Expert Teachers</h3><p class="muted">10+ years experience</p></div>
+    <div class="feature-card"><div style="font-size:20px;margin-bottom:8px">📄</div><h3>PDF Notes</h3><p class="muted">Comprehensive materials</p></div>
+  <a href="https://youtube.com/@chemistaacademy?si=VzK0HNULwATLC8Yy" class="feature-card" style="text-decoration:none; color:inherit;">
+  <div style="font-size:20px;margin-bottom:8px">🎥</div>
+  <h3>Video Lessons</h3>
+  <p class="muted">Learn at your own pace</p>
+</a>
+
+</div>
+
+<!-- Student Achievements + Class Video + 3-image slider -->
+<section class="container" style="margin-top:26px">
+    <h2 class="center">Student Achievements & Class Video</h2>
+
+    <!-- 3-image slider (single view) -->
+    <div class="slider" id="achievementsSlider" style="margin-top:14px">
+        <div class="slider-track" id="achievementsTrack">
+            <!-- Replace these image srcs with the images you provide (student achievements) -->
+            <div class="slide"><img src="./1.jpg" alt="achievement 1" style="width:100%;display:block;height:350px;object-fit:cover;border-radius:10px"></div>
+            <div class="slide"><img src="./2.jpg" alt="achievement 2" style="width:100%;display:block;height:350px;object-fit:cover;border-radius:10px"></div>
+            <div class="slide"><img src="./josh-balerite-acol-mLRgzmWSxIk-unsplash.jpg" alt="achievement 3" style="width:100%;display:block;height:350px;object-fit:cover;border-radius:10px"></div>
         </div>
-    </footer>
-  <script>
-    document.getElementById("registerBtn").addEventListener("click", function() {
-        var name = document.getElementById("studentName").value;
-        var phone = document.getElementById("studentPhone").value;
-        var subject = document.getElementById("subject").value;
+        <div class="slider-controls">
+            <button class="slider-btn" data-target="achievements" data-action="prev">◀</button>
+            <button class="slider-btn" data-target="achievements" data-action="next">▶</button>
+        </div>
+    </div>
 
-        if(!name || !phone || !subject){
-            alert("Please fill all details!");
-            return;
-        }
+    <!-- Video -->
+  <div style="margin-top:18px;" class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/uXAhTsmp944?si=2RzNVzczTiJyAb5B"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    style="width:100%; height:420px; border-radius:10px;">
+  </iframe>
+</div>
 
-        var whatsappNumber = "923154901455"; 
-        var message = `Hello! New student registration:\nName: ${name}\nPhone: ${phone}\nSubject: ${subject}`;
-        var url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+</section>
 
-        window.open(url, "_blank");
+<!-- Testimonials slider (horizontal cards auto-scroll) -->
+<section class="testimonials-section">
+    <div class="container">
+        <h2 class="center">What Our Students Say</h2>
+        <div style="margin-top:14px;position:relative">
+            <div class="test-cards" id="testCards">
+                <!-- Testimonials: keep as cards. You can add images by adding <img> inside each card -->
+                <div class="test-card">
+                    <div class="stars">★★★★★</div>
+                    <h4>Sarah Ahmed <span class="muted">— Chemistry Student</span></h4>
+                    <p>"The teaching method is exceptional! I improved my grade from B to A* in just 6 months."</p>
+                </div>
+                <div class="test-card">
+                    <div class="stars">★★★★★</div>
+                    <h4>Muhammad Raza <span class="muted">— Physics Student</span></h4>
+                    <p>"Best academy for A-Levels! Teachers explain complex concepts in simple ways."</p>
+                </div>
+                <div class="test-card">
+                    <div class="stars">★★★★★</div>
+                    <h4>Ayesha Khan <span class="muted">— Biology Student</span></h4>
+                    <p>"The video lessons are so clear and easy to understand. I can study anytime."</p>
+                </div>
+                <div class="test-card">
+                    <div class="stars">★★★★★</div>
+                    <h4>Hassan Ali <span class="muted">— Maths Student</span></h4>
+                    <p>"Outstanding teaching quality! The practice papers helped me ace my exams."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Students images slider (multiview thumbnails & auto-scroll) -->
+<section class="students-slider">
+    <div class="container">
+        <h2 class="center">Students Gallery</h2>
+        <div style="margin-top:12px;overflow:hidden">
+            <div class="students-track" id="studentsTrack">
+                <!-- Replace src with your student images. Keep many thumbnails for smooth scroll. -->
+                <div class="student-thumb"><img src="./7.jpg" alt="student 1"></div>
+                <div class="student-thumb"><img src="./8.jpg" alt="student 2"></div>
+                <div class="student-thumb"><img src="./st3.jpg" alt="student 3"></div>
+                <div class="student-thumb"><img src="./st.jpg" alt="student 4"></div>
+                <div class="student-thumb"><img src="./st1.jpg" alt="student 5"></div>
+                <div class="student-thumb"><img src="./st2.jpg" alt="student 6"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Teachers 6 boxes -->
+ <h2 class="center">Teachers</h2>
+<section id="teachers" class="teachers-grid container">
+    <!-- Replace image src with actual teacher photos -->
+    <div class="teacher-card"><img src="./2.jpg" alt="Dr. A. Khan"><h4>Najma Atif</h4><p>Chemistry — M.phil Chemistry 18+ years experience </p></div>
+    <div class="teacher-card"><img src="./Bio.jpeg" alt="Ms. Farah Saeed"><h4>Farah Saeed</h4><p>MSc Zoology from Karachi University 20+ years Experience</p></div>
+    <div class="teacher-card"><img src="./Math.jpeg" alt="Mr. Z. Ali"><h4>Mahnoor Adil</h4><p> MSc in Applied Mathematics 12 years Experience</p></div>
+    <div class="teacher-card"><img src="./Bio.jpeg" alt="Ms. R. Khan"><h4>Ms. R. Khan</h4><p>Chemistry — Examiner</p></div>
+    <div class="teacher-card"><img src="./Bio.jpeg" alt="Mr. F. Shah"><h4>Mr. F. Shah</h4><p>Maths — Exam Techniques</p></div>
+    <div class="teacher-card"><img src="./Bio.jpeg" alt="Ms. L. Noor"><h4>Ms. L. Noor</h4><p>Biology — Practical Specialist</p></div>
+</section>
+
+<!-- Faculty image slider (auto slideshow of teachers) -->
+<section class="container" style="margin-top:16px">
+    <h3 class="center">Faculty Highlights</h3>
+    <div class="slider" id="facultySlider" style="margin-top:12px">
+        <div class="slider-track" id="facultyTrack">
+            <div class="slide"><img src="./f1.jpg" alt="faculty 1" style="width:100%;height:320px;object-fit:cover;border-radius:10px"></div>
+            <div class="slide"><img src="./f2.jpg" alt="faculty 2" style="width:100%;height:320px;object-fit:cover;border-radius:10px"></div>
+            <div class="slide"><img src="./f3.jpg" alt="faculty 3" style="width:100%;height:320px;object-fit:cover;border-radius:10px"></div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn" data-target="faculty" data-action="prev">◀</button>
+            <button class="slider-btn" data-target="faculty" data-action="next">▶</button>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs -->
+<section class="faqs">
+    <h2 class="center">Frequently Asked Questions</h2>
+    <div class="faq" data-open>
+        <h4>What boards do you cover? <span class="muted">→</span></h4>
+        <p>We cover Cambridge (A-Level & IGCSE), Edexcel and AQA syllabuses. Lessons & materials are tailored per board.</p>
+    </div>
+    <div class="faq">
+        <h4>How do I register? <span class="muted">→</span></h4>
+        <p>Use the <strong>Student Registration</strong> button at the top or the registration form in the hero. You'll be contacted on WhatsApp after submission.</p>
+    </div>
+    <div class="faq">
+        <h4>Are lessons live or recorded? <span class="muted">→</span></h4>
+        <p>We offer both live interactive classes and recorded video lessons to fit different needs.</p>
+    </div>
+    <div class="faq">
+        <h4>Can I request past papers and notes? <span class="muted">→</span></h4>
+        <p>Yes — all registered students get access to curated PDF notes, solved past papers, and practice resources.</p>
+    </div>
+</section>
+
+<!-- Optimized Footer -->
+<footer id="contact">
+    <div class="footer-grid container">
+        <div>
+            <h3>Chemista Academy</h3>
+            <p class="muted">Cambridge • Edexcel • AQA</p>
+            <p class="muted">Expert teachers for Chemistry, Biology, Physics, and Maths</p>
+            <p style="margin-top:8px"><strong>📞</strong> <a href="https://wa.me/923452048907" target="_blank">+92 345 2048907</a></p>
+            <p><strong>📧</strong> <a href="mailto:chemistaacademy@gmail.com">chemistaacademy@gmail.com</a></p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#courses">Courses</a>
+            <a href="#notes">Notes</a>
+            <a href="#teachers">Teachers</a>
+            <a href="#faqs">FAQs</a>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <a href="https://youtube.com/@chemistaacademy?si=Oz01Tw7ZaV51s9_b" target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/chemistaacademy/" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/chemistaacademy" target="_blank">Facebook</a>
+            <a href="https://wa.me/03452048907" target="_blank">WhatsApp</a>
+        </div>
+
+        <div>
+            <h3>Subscribe</h3>
+            <div class="newsletter">
+                <input type="email" id="newsletterEmail" placeholder="Your email address">
+                <button id="subscribeBtn">Subscribe</button>
+            </div>
+            <p class="muted" style="margin-top:10px">We send only important updates: new courses, classes & free resources.</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom container">
+        <p>&copy; 2025 Chemista Academy. All Rights Reserved.</p>
+        <p>Designed & Developed by <a href="https://ahmedshah-portfolio.netlify.app/" target="_blank"><strong>Ahmed Shah</strong></a></p>
+    </div>
+</footer>
+
+<script>
+    /* ---------- WhatsApp registration from hero ---------- */
+    document.getElementById("registerBtn").addEventListener("click", function(){
+        var name=document.getElementById("studentName").value.trim();
+        var phone=document.getElementById("studentPhone").value.trim();
+        var subject=document.getElementById("subject").value;
+        if(!name||!phone||!subject){alert("Please fill all details!");return}
+        var whatsappNumber="923154901455"; // <-- update to your WhatsApp number (without +)
+        var message=`Hello! New student registration:\nName: ${name}\nPhone: ${phone}\nSubject: ${subject}`;
+        var url=`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url,'_blank');
     });
-    </script>
+
+    /* ---------- Simple slider manager for single-view sliders ---------- */
+    (function(){
+        function Slider(id,interval){
+            this.root=document.getElementById(id+"Slider");
+            if(!this.root) return;
+            this.track=this.root.querySelector('.slider-track');
+            this.slides=this.track.children.length;
+            this.index=0;
+            var self=this;
+            this.next=function(){self.index=(self.index+1)%self.slides;self.update()}
+            this.prev=function(){self.index=(self.index-1+self.slides)%self.slides;self.update()}
+            this.update=function(){self.track.style.transform=`translateX(-${self.index*100}%)`}
+            this.root.querySelectorAll('.slider-btn').forEach(function(btn){
+                btn.addEventListener('click',function(e){
+                    var action=btn.getAttribute('data-action');
+                    if(action==='next')self.next();else self.prev();
+                })
+            });
+            this.timer=setInterval(this.next,interval||4000);
+            this.root.addEventListener('mouseenter',function(){clearInterval(self.timer)})
+            this.root.addEventListener('mouseleave',function(){self.timer=setInterval(self.next,interval||4000)})
+        }
+        new Slider('achievements',3500);
+        new Slider('faculty',3500);
+    })();
+
+    /* ---------- Auto-scroll testimonials (horizontal) ---------- */
+    (function(){
+        var el=document.getElementById('testCards');
+        if(!el)return;
+        var pos=0;
+        function step(){pos+=2; if(pos>el.scrollWidth/2) pos=0; el.scrollLeft=pos}
+        var t=setInterval(step,40);
+        el.addEventListener('mouseenter',function(){clearInterval(t)})
+        el.addEventListener('mouseleave',function(){t=setInterval(step,40)})
+    })();
+
+    /* ---------- Students thumbnails auto-scroll (loop) ---------- */
+    (function(){
+        var track=document.getElementById('studentsTrack');
+        if(!track) return;
+        var speed=1; // px per frame
+        // duplicate items for seamless loop
+        track.innerHTML += track.innerHTML;
+        var pos=0;
+        function frame(){pos+=speed; if(pos>=track.scrollWidth/2) pos=0; track.parentElement.scrollLeft = pos; requestAnimationFrame(frame)}
+        requestAnimationFrame(frame);
+    })();
+
+    /* ---------- Simple FAQs accordion ---------- */
+    document.querySelectorAll('.faq').forEach(function(node){
+        var header=node.querySelector('h4');
+        header.addEventListener('click',function(){
+            var p=node.querySelector('p');
+            var open = p.style.display=== 'block';
+            document.querySelectorAll('.faq p').forEach(function(x){x.style.display='none'});
+            p.style.display = open? 'none' : 'block';
+        });
+        // open first if requested
+        if(node.hasAttribute('data-open')) node.querySelector('p').style.display='block';
+    });
+
+    /* ---------- Subscribe button (demo) ---------- */
+    document.getElementById('subscribeBtn').addEventListener('click',function(){
+        var email=document.getElementById('newsletterEmail').value.trim();
+        if(!email||!email.includes('@')){alert('Please enter a valid email');return}
+        alert('Thanks for subscribing! We will send updates to: '+email);
+        document.getElementById('newsletterEmail').value='';
+    });
+
+</script>
 </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--
+Notes for you:
+1) Replace all ./images/*.jpg placeholder paths with the actual images you will provide.
+2) Update the WhatsApp number in the JS (variable whatsappNumber) to your correct number (no plus sign).
+3) If you want different slider timings or to add more teacher/testimonial cards, just copy the <div class="test-card"> or <div class="teacher-card"> blocks.
+4) This file is self-contained (no external libs). If you prefer slick/Swiper for advanced features, I can convert it.
+-->
