@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chemista Academy — Notes</title>
+  <meta name="description" content="Download and unlock study notes for IGCSE, O-Levels, GCSE and A-Levels. Free & premium notes — instant WhatsApp unlock." />
+  <style>
+    :root {
+      --blue:#1e3a5f;
+      --accent:#1e3a5f;
+      --bg:#f5f9ff;
+      --white:#ffffff;
+      --shadow:0 8px 25px rgba(0,0,0,0.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+    body{background:linear-gradient(135deg,var(--bg),#ffffff);color:#1e293b;overflow-x:hidden}
+
+    header {
+      background:linear-gradient(135deg,var(--blue),var(--accent));
+      color:white;
+      padding:10px 20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.2);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+    .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:auto;}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo-img{height:40px;width:auto;border-radius:8px}
+    .logo-text h1{font-size:18px;margin:0}
+    .logo-text p{font-size:12px;margin-top:2px;opacity:0.9}
+    .back-btn{
+      background:#f7f304;color:var(--blue);
+      padding:8px 16px;border-radius:25px;
+      text-decoration:none;font-weight:600;transition:0.3s;
+    }
+    .back-btn:hover{background:#ffffff;}
+
+    main{max-width:1200px;margin:auto;padding:40px 20px;}
+    .section-title{text-align:center;margin-bottom:25px}
+    .section-title h2{color:var(--blue);font-size:24px}
+    .section-title p{color:#64748b;font-size:14px}
+
+    .notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;}
+
+    .note-card{
+      background:rgba(255,255,255,0.9);
+      border-radius:18px;padding:20px;text-align:center;
+      box-shadow:var(--shadow);backdrop-filter:blur(10px);
+      transition:all .3s ease;position:relative;
+      animation:fadeUp .7s forwards;opacity:0;transform:translateY(20px);
+    }
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+    .note-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
+    .note-card h3{font-size:17px;color:var(--blue);margin-bottom:8px;}
+    .note-card p{font-size:13px;color:#64748b;margin-bottom:18px;}
+
+    .btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;transition:.3s}
+    .btn.view{background:var(--accent);color:white}
+    .btn.download{background:#00b894;color:white}
+    .btn:hover{transform:scale(1.08)}
+
+    .lock{font-size:38px;color:#ff4d4d;margin-bottom:10px;animation:pulse 1.5s infinite}
+    @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.15);}}
+
+    .whatsapp{
+      background:#25d366;color:white;padding:10px 16px;border-radius:25px;
+      text-decoration:none;font-weight:600;display:inline-block;margin-top:10px;
+      transition:0.3s;
+    }
+    .whatsapp:hover{background:#20b85b;}
+    footer {
+  text-align: center;
+  padding: 20px;
+  background: #f0f6ff;
+  font-size: 14px;
+  color: #555;
+}
+
+footer .designer-link {
+  color: #ffffff; /* your academy’s blue */
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+  transition: color 0.3s ease;
+}
+
+footer .designer-link:hover {
+  color: #ff6600; /* hover color – orange accent */
+  text-decoration: underline;
+}
+
+
+    footer{text-align:center;padding:20px;background:#00367c;font-size:14px;color:#ffffff}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="./Img/Logo.jpeg" alt="Chemista Academy" class="logo-img">
+        <div class="logo-text">
+          <h1>Chemista Academy</h1>
+          <p>A-Levels • O-Levels / IGCSE / GCSE</p>
+        </div>
+      </div>
+      <a href="index.html" class="back-btn">⬅ Back to Home</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-title">
+      <h2>Download & Unlock Notes</h2>
+      <p>Free notes are available instantly. Premium notes unlock via WhatsApp with book name.</p>
+    </div>
+
+    <div class="notes-grid">
+      <!-- Free Notes -->
+      <div class="note-card">
+  <h3>IGCSE Chemistry Notes</h3>
+  <p>Free download available instantly</p>
+  <a class="btn view" href="./Downloads/A-levels-AQA-AS-A2.pdf" target="_blank">👁️ View</a>
+  <a class="btn download" href="./Downloads/A-levels-AQA-AS-A2.pdf" download>⬇️ Download</a>
+</div>
+
+
+      <div class="note-card">
+        <h3>O-Level Biology Notes</h3>
+        <p>Free download available instantly</p>
+        <a class="btn view" href="./notes/olevel-biology.pdf" target="_blank">👁️ View</a>
+        <a class="btn download" href="./notes/olevel-biology.pdf" download>⬇️ Download</a>
+      </div>
+
+      <div class="note-card">
+        <h3>A-Level Chemistry (AS)</h3>
+        <p>Free download available instantly</p>
+        <a class="btn view" href="./notes/alevel-as-chemistry.pdf" target="_blank">👁️ View</a>
+        <a class="btn download" href="./notes/alevel-as-chemistry.pdf" download>⬇️ Download</a>
+      </div>
+
+      <div class="note-card">
+        <h3>Cambridge O-Level English Notes</h3>
+        <p>Free download available instantly</p>
+        <a class="btn view" href="./notes/olevel-english.pdf" target="_blank">👁️ View</a>
+        <a class="btn download" href="./notes/olevel-english.pdf" download>⬇️ Download</a>
+      </div>
+
+      <!-- Premium Notes -->
+      <div class="note-card">
+        <div class="lock">🔒</div>
+        <h3>IGCSE Physics Notes</h3>
+        <p>Premium notes — unlock via WhatsApp</p>
+        <a class="whatsapp" target="_blank" href="https://wa.me/923154901455?text=Hello Chemista Academy! I want to unlock the premium notes for IGCSE Physics Notes.">💬 Unlock Now</a>
+      </div>
+
+      <div class="note-card">
+        <div class="lock">🔒</div>
+        <h3>A-Level Chemistry (A2)</h3>
+        <p>Premium notes — unlock via WhatsApp</p>
+        <a class="whatsapp" target="_blank" href="https://wa.me/923154901455?text=Hello Chemista Academy! I want to unlock the premium notes for A-Level Chemistry (A2).">💬 Unlock Now</a>
+      </div>
+
+      <div class="note-card">
+        <div class="lock">🔒</div>
+        <h3>AQA GCSE Physics Notes</h3>
+        <p>Premium notes — unlock via WhatsApp</p>
+        <a class="whatsapp" target="_blank" href="https://wa.me/923154901455?text=Hello Chemista Academy! I want to unlock the premium notes for AQA GCSE Physics Notes.">💬 Unlock Now</a>
+      </div>
+
+      <div class="note-card">
+        <div class="lock">🔒</div>
+        <h3>Edexcel A-Level Biology</h3>
+        <p>Premium notes — unlock via WhatsApp</p>
+        <a class="whatsapp" target="_blank" href="https://wa.me/923154901455?text=Hello Chemista Academy! I want to unlock the premium notes for Edexcel A-Level Biology.">💬 Unlock Now</a>
+      </div>
+
+      <div class="note-card">
+        <div class="lock">🔒</div>
+        <h3>Cambridge A-Level Physics (A2)</h3>
+        <p>Premium notes — unlock via WhatsApp</p>
+        <a class="whatsapp" target="_blank" href="https://wa.me/923154901455?text=Hello Chemista Academy! I want to unlock the premium notes for Cambridge A-Level Physics (A2).">💬 Unlock Now</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>© 2025 Chemista Academy |<a href="https://ahmedshah-portfolio.netlify.app/"  target="_blank" class="designer-link">Designed by Ahmed Shah</footer></a>
+</body>
+</html>
