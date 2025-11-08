@@ -3,266 +3,1053 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>All Courses & Syllabi — Chemista Academy</title>
-  <meta name="description" content="Download syllabus outlines for IGCSE, O-Levels, GCSE and A-Levels (Cambridge / Edexcel / AQA). Seven subjects per board. AS & A2 split for A-Levels." />
+  <title>Chemista Academy — Courses & Syllabus</title>
+  <meta name="description" content="Download syllabus outlines for IGCSE, O-Levels, GCSE and A-Levels." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --chem-blue:#1e3a5f;
-      --chem-blue-2:#2d5a8c;
-      --chem-accent:#ff6600;
-      --muted:#6b7280;
-      --card-shadow: 0 12px 30px rgba(20,30,40,0.06);
+    :root {
+      --navy: #1e3a5f;
+      --yellow: #f7ce46;
+      --white: #ffffff;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --shadow: 0 4px 15px rgba(30, 58, 95, 0.08);
+      --shadow-lg: 0 8px 25px rgba(30, 58, 95, 0.12);
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Inter','Segoe UI',Arial,sans-serif;
-      background:#f6f8fb;
-      color:#0f1724;
-      line-height:1.45;
-      scroll-behavior:smooth;
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    a{text-decoration:none;color:inherit}
-
-    /* header */
-    header{
-      background:linear-gradient(135deg,var(--chem-blue),var(--chem-blue-2));
-      color:white;padding:14px 0;
-      position:sticky;top:0;z-index:60;
-      box-shadow:0 3px 12px rgba(10,20,30,0.12)
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
-    .container{max-width:1200px;margin:0 auto;padding:0 18px}
-    .topbar{display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:44px;width:auto;border-radius:6px}
-    .brand h1{font-size:18px}
-    .brand p{font-size:12px;opacity:.9}
-    .btn{padding:9px 14px;border-radius:8px;font-weight:700}
-    .btn-student{background:var(--chem-accent);color:white}
-    .btn-teacher{border:1px solid rgba(255,255,255,0.3);color:white}
-
-    /* back button */
-    .back-fixed{
-      position:fixed;left:16px;top:76px;
-      background:var(--chem-accent);color:white;
-      border:none;padding:10px 14px;border-radius:8px;
-      cursor:pointer;font-weight:600;
-      transition:transform .2s, box-shadow .2s;
-      box-shadow:0 6px 18px rgba(0,0,0,0.15);z-index:70;
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5990 100%);
+      color: white;
+      padding: 16px 24px;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      animation: slideDown 0.5s ease-out;
     }
-    .back-fixed:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
-
-    /* hero */
-    .hero{padding:28px 0 10px}
-    .hero-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-    .hero-left h2{font-size:22px;color:var(--chem-blue)}
-    .hero-left p{color:var(--muted);font-size:14px}
-    .badge{background:rgba(255,102,0,0.12);color:var(--chem-accent);
-      padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
-
-    /* search + tabs */
-    .controls{margin:18px 0 8px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .search{flex:1 1 320px;display:flex;align-items:center;gap:8px;background:white;border-radius:10px;padding:8px 10px;box-shadow:var(--card-shadow)}
-    .search input{border:0;outline:none;font-size:14px;width:100%}
-    .tabs{display:flex;gap:8px;flex-wrap:wrap}
-    .tab{background:white;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700;border:1px solid transparent}
-    .tab.active{border-color:rgba(30,58,95,0.12);box-shadow:var(--card-shadow)}
-
-    /* accordion */
-    .accordion{margin-top:16px}
-    .board{background:white;border-radius:12px;box-shadow:var(--card-shadow);overflow:hidden;margin-bottom:12px;transition:transform .3s ease}
-    .board:hover{transform:translateY(-3px)}
-    .board-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer}
-    .board-left{display:flex;align-items:center;gap:12px}
-    .board-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--chem-blue),var(--chem-accent));display:flex;justify-content:center;align-items:center;color:white;font-weight:800;font-size:20px}
-    .board-title{font-weight:800;color:var(--chem-blue)}
-    .board-sub{font-size:13px;color:var(--muted)}
-    .chev{font-size:18px;color:var(--muted)}
-    .board-body{padding:14px 16px;display:none;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
-    .subject{background:linear-gradient(180deg,white,#f9fbff);padding:12px;border-radius:10px;box-shadow:0 8px 22px rgba(20,30,40,0.04);display:flex;flex-direction:column;gap:8px;animation:fadeIn .5s ease}
-    .subject h4{margin:0;color:var(--chem-blue);font-size:15px}
-    .subject p{margin:0;color:var(--muted);font-size:13px}
-    .actions{margin-top:auto;display:flex;gap:8px}
-    .view-btn{background:white;border:1px solid rgba(30,58,95,0.15);padding:8px 10px;border-radius:8px;color:var(--chem-blue);font-weight:700;transition:all .2s}
-    .view-btn:hover{background:var(--chem-accent);color:white;border-color:var(--chem-accent)}
-    .dl-btn{background:var(--chem-blue);color:white;padding:8px 10px;border-radius:8px;font-weight:700;transition:background .2s}
-    .dl-btn:hover{background:var(--chem-blue-2)}
-    .sub-badge{background:rgba(30,58,95,0.06);color:var(--chem-blue);padding:4px 8px;border-radius:999px;font-weight:700;font-size:12px}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
-    .note{margin:18px 0;color:var(--muted);font-size:13px}
-
-    @media(max-width:820px){
-      .hero-inner{flex-direction:column;align-items:flex-start}
-      .back-fixed{top:86px}
+    
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .logo-img {
+      height: 50px;
+      width: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .logo-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0;
+      animation: fadeInLeft 0.6s ease-out;
+    }
+    
+    .logo-text p {
+      font-size: 13px;
+      margin-top: 2px;
+      opacity: 0.95;
+      font-weight: 400;
+      animation: fadeInLeft 0.7s ease-out;
+    }
+    
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .back-btn {
+      background: var(--yellow);
+      color: var(--navy);
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(247, 206, 70, 0.3);
+      animation: fadeInRight 0.6s ease-out;
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .back-btn:hover {
+      background: #ffd54f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(247, 206, 70, 0.4);
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .page-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .page-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+      animation: fadeInUp 0.7s ease-out;
+    }
+    
+    .page-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    /* Filters */
+    .filters {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.9s ease-out;
+    }
+    
+    .search {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      align-items: center;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: var(--shadow);
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .search:focus-within {
+      box-shadow: 0 6px 20px rgba(30, 58, 95, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    .search input {
+      border: 0;
+      outline: none;
+      font-size: 15px;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+    }
+    
+    .search input::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .chip {
+      background: white;
+      padding: 10px 18px;
+      border-radius: 50px;
+      box-shadow: var(--shadow);
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .chip:hover, .chip.active {
+      background: var(--yellow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(30, 58, 95, 0.15);
+    }
+    
+    .chip.active {
+      background: var(--navy);
+      color: var(--yellow);
+    }
+    
+    /* Accordion List */
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    details {
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.5s ease-out backwards;
+    }
+    
+    details:nth-child(1) { animation-delay: 0.1s; }
+    details:nth-child(2) { animation-delay: 0.2s; }
+    details:nth-child(3) { animation-delay: 0.3s; }
+    details:nth-child(4) { animation-delay: 0.4s; }
+    details:nth-child(5) { animation-delay: 0.5s; }
+    details:nth-child(6) { animation-delay: 0.6s; }
+    details:nth-child(7) { animation-delay: 0.7s; }
+    
+    details.hidden {
+      display: none;
+    }
+    
+    details:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+    
+    summary {
+      list-style: none;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      user-select: none;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    }
+    
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    .badge-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--navy), #2d5990);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--yellow);
+      font-weight: 800;
+      font-size: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(30, 58, 95, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    details:hover .badge-icon {
+      transform: rotate(5deg) scale(1.05);
+    }
+    
+    .summary-text {
+      flex: 1;
+    }
+    
+    .summary-text .title {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    
+    .summary-text .sub {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    
+    .chev {
+      color: var(--navy);
+      font-size: 24px;
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
+    }
+    
+    details[open] .chev {
+      transform: rotate(180deg);
+    }
+    
+    /* Panel */
+    .panel {
+      padding: 24px;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-top: 2px solid #e2e8f0;
+      animation: expandDown 0.3s ease-out;
+    }
+    
+    @keyframes expandDown {
+      from {
+        opacity: 0;
+        max-height: 0;
+      }
+      to {
+        opacity: 1;
+        max-height: 2000px;
+      }
+    }
+    
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    .subject {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      animation: zoomIn 0.4s ease-out backwards;
+    }
+    
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .subject:nth-child(1) { animation-delay: 0.1s; }
+    .subject:nth-child(2) { animation-delay: 0.15s; }
+    .subject:nth-child(3) { animation-delay: 0.2s; }
+    .subject:nth-child(4) { animation-delay: 0.25s; }
+    .subject:nth-child(5) { animation-delay: 0.3s; }
+    .subject:nth-child(6) { animation-delay: 0.35s; }
+    .subject:nth-child(7) { animation-delay: 0.4s; }
+    
+    .subject:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--yellow);
+    }
+    
+    .subject h4 {
+      margin: 0;
+      font-size: 18px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+    
+    .subject p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      flex: 1;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+    
+    .actions a {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .view {
+      background: white;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+    }
+    
+    .view:hover {
+      background: var(--navy);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .download {
+      background: var(--yellow);
+      color: var(--navy);
+      border: 2px solid var(--yellow);
+    }
+    
+    .download:hover {
+      background: var(--navy);
+      color: var(--yellow);
+      border-color: var(--navy);
+      transform: translateY(-2px);
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 18px;
+      display: none;
+    }
+    
+    .no-results.show {
+      display: block;
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: var(--navy);
+      color: white;
+      font-size: 14px;
+      margin-top: 60px;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    footer a {
+      color: var(--yellow);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    footer a:hover {
+      color: #ffd54f;
+      text-decoration: underline;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .logo-text h1 {
+        font-size: 16px;
+      }
+      
+      .logo-text p {
+        font-size: 11px;
+      }
+      
+      .page-title {
+        font-size: 24px;
+      }
+      
+      .filters {
+        flex-direction: column;
+      }
+      
+      .search {
+        width: 100%;
+      }
+      
+      .chips {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .subjects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .badge-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 18px;
+      }
     }
   </style>
 </head>
-
 <body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="./Logo.jpeg" alt="Chemista Academy" class="logo-img">
+        <div class="logo-text">
+          <h1>Chemista Academy</h1>
+          <p>Courses & Syllabus — 7 Subjects per Board</p>
+        </div>
+      </div>
+      <a href="index.html" class="back-btn">⬅ Back to Home</a>
+    </div>
+  </header>
 
-<header>
-  <div class="container topbar">
-    <div class="brand">
-      <img src="./WhatsApp Image 2025-11-03 at 11.50.57 PM.jpeg" alt="Chemista Academy">
-      <div>
-        <h1>Chemista Academy</h1>
-        <p>All Boards — Courses & Syllabus</p>
+  <main>
+    <div class="page-head">
+      <div class="page-title">Courses & Syllabus</div>
+      <div class="page-sub">Download subject-wise syllabus outlines for each board. For A-Levels each subject has AS and A2 PDFs.</div>
+    </div>
+
+    <div class="filters">
+      <div class="search">
+        <span>🔍</span>
+        <input type="text" id="searchInput" placeholder="Search subject or board..." />
+      </div>
+      <div class="chips">
+        <div class="chip active" data-filter="all">All</div>
+        <div class="chip" data-filter="cambridge">Cambridge</div>
+        <div class="chip" data-filter="edexcel">Edexcel</div>
+        <div class="chip" data-filter="aqa">AQA</div>
       </div>
     </div>
-    <div class="top-actions">
-      <a class="btn btn-student" href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" target="_blank">Student Registration</a>
-      <a class="btn btn-teacher" href="https://docs.google.com/forms/d/18po-m3jeCYvMxJvao2xfuegeZyHlGFvvWWwlF0aUlnM/viewform?edit_requested=true" target="_blank">Teacher Registration</a>
-    </div>
-  </div>
-</header>
 
-<!-- ✅ Back button now works reliably -->
-<a href="index.html" class="back-fixed">← Back</a>
-
-
-<main class="container hero" role="main">
-  <div class="hero-inner">
-    <div class="hero-left">
-      <h2>Courses & Syllabus — 7 Subjects per Board</h2>
-      <p>Download subject-wise syllabus outlines for each board. For A-Levels each subject has AS and A2 PDFs.</p>
-    </div>
-    <div class="hero-right"><span class="badge">Updated: Nov 2025</span></div>
-  </div>
-
-  <div class="controls">
-    <div class="search" role="search">
-      🔍 <input id="q" type="search" placeholder="Search subject or board (e.g. 'Chemistry' or 'Cambridge')" />
-    </div>
-    <div class="tabs" role="tablist" aria-label="Filter boards">
-      <div class="tab active" data-filter="all">All</div>
-      <div class="tab" data-filter="cambridge">Cambridge</div>
-      <div class="tab" data-filter="edexcel">Edexcel</div>
-      <div class="tab" data-filter="aqa">AQA</div>
-    </div>
-  </div>
-
-  <section class="accordion" id="accordion"></section>
-
- 
-
-<script>
-function goBack() {
-  if (document.referrer !== "") {
-    history.back();
-  } else {
-    window.location.href = "index.html"; // fallback to homepage
-  }
-}
-
-// COURSE DATA
-const boards = [
-  { id: 'igcse-cambridge', title: 'IGCSE — Cambridge', tag: 'cambridge', level: 'IGCSE', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'] },
-  { id: 'olevel-cambridge', title: 'O-Levels — Cambridge', tag: 'cambridge', level: 'O-Levels', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'] },
-  { id: 'igcse-edexcel', title: 'IGCSE — Edexcel', tag: 'edexcel', level: 'IGCSE', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'] },
-  { id: 'gcse-aqa', title: 'GCSE — AQA', tag: 'aqa', level: 'GCSE', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'] },
-  { id: 'alevel-cambridge', title: 'A-Levels — Cambridge', tag: 'cambridge', level: 'A-Levels', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'], split: true },
-  { id: 'alevel-edexcel', title: 'A-Levels — Edexcel', tag: 'edexcel', level: 'A-Levels', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'], split: true },
-  { id: 'alevel-aqa', title: 'A-Levels — AQA', tag: 'aqa', level: 'A-Levels', subjects: ['Chemistry','Physics','Biology','Mathematics','English','ICT','Business Studies'], split: true }
-];
-
-const accordion = document.getElementById('accordion');
-
-function slug(s){
-  return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
-}
-
-boards.forEach(board=>{
-  const boardEl=document.createElement('div');
-  boardEl.className='board';
-  boardEl.dataset.tag=board.tag;
-
-  const head=document.createElement('div');
-  head.className='board-head';
-  head.innerHTML=`
-    <div class="board-left">
-      <div class="board-icon">${board.level.slice(0,2).toUpperCase()}</div>
-      <div>
-        <div class="board-title">${board.title}</div>
-        <div class="board-sub">${board.level} — ${board.subjects.length} subjects</div>
-      </div>
-    </div>
-    <div class="chev">▾</div>
-  `;
-  const body=document.createElement('div');
-  body.className='board-body';
-
-  board.subjects.forEach(sub=>{
-    const subj=document.createElement('div');
-    subj.className='subject';
-    if(board.split){
-      const asFile=`downloads/${slug(board.id)}-as-${slug(sub)}.pdf`;
-      const a2File=`downloads/${slug(board.id)}-a2-${slug(sub)}.pdf`;
-      subj.innerHTML=`
-        <h4>${sub} <span class="sub-badge">AS</span></h4>
-        <p>AS syllabus outline — first year.</p>
-        <div class="actions">
-          <a class="view-btn" href="${asFile}" target="_blank">View AS</a>
-          <a class="dl-btn" href="${asFile}" download>Download AS</a>
+    <div class="list">
+      <!-- IGCSE — Cambridge -->
+      <details open data-board="cambridge" data-level="igcse">
+        <summary>
+          <div class="badge-icon">IG</div>
+          <div class="summary-text">
+            <div class="title">IGCSE — Cambridge</div>
+            <div class="sub">IGCSE — 7 subjects</div>
+          </div>
+          <div class="chev">▾</div>
+        </summary>
+        <div class="panel">
+          <div class="subjects-grid">
+            <div class="subject" data-subject="chemistry">
+              <h4>Chemistry</h4>
+              <p>Syllabus outline & topics for Chemistry.</p>
+              <div class="actions">
+                <a class="view" href="./Downlaods/IGCSE Cambridge.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="./Downlaods/IGCSE Cambridge.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Physics</h4>
+              <p>Syllabus outline & topics for Physics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/igcse-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/igcse-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="biology">
+              <h4>Biology</h4>
+              <p>Syllabus outline & topics for Biology.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/igcse-cambridge-biology.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/igcse-cambridge-biology.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="mathematics">
+              <h4>Mathematics</h4>
+              <p>Syllabus outline & topics for Mathematics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/igcse-cambridge-mathematics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/igcse-cambridge-mathematics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="english">
+              <h4>English</h4>
+              <p>Syllabus outline & topics for English.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/igcse-cambridge-english.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/igcse-cambridge-english.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="ict">
+              <h4>ICT</h4>
+              <p>Syllabus outline & topics for ICT.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/igcse-cambridge-ict.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/igcse-cambridge-ict.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="business">
+              <h4>Business Studies</h4>
+              <p>Syllabus outline & topics for Business Studies.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/igcse-cambridge-business-studies.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/igcse-cambridge-business-studies.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <hr style="border:none;border-top:1px solid rgba(15,23,36,0.05)">
-        <h4>${sub} <span class="sub-badge">A2</span></h4>
-        <p>A2 syllabus outline — second year.</p>
-        <div class="actions">
-          <a class="view-btn" href="${a2File}" target="_blank">View A2</a>
-          <a class="dl-btn" href="${a2File}" download>Download A2</a>
+      </details>
+
+      <!-- O-Levels — Cambridge -->
+      <details data-board="cambridge" data-level="olevel">
+        <summary>
+          <div class="badge-icon">O-</div>
+          <div class="summary-text">
+            <div class="title">O-Levels — Cambridge</div>
+            <div class="sub">O-Levels — 7 subjects</div>
+          </div>
+          <div class="chev">▾</div>
+        </summary>
+        <div class="panel">
+          <div class="subjects-grid">
+            <div class="subject" data-subject="chemistry">
+              <h4>Chemistry</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="./Downlaods/Olevels Cambridge Chem.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="./Downlaods/Olevels Cambridge Chem.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Physics</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="biology">
+              <h4>Biology</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-biology.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-biology.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="mathematics">
+              <h4>Mathematics</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-mathematics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-mathematics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="english">
+              <h4>English</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-english.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-english.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="ict">
+              <h4>ICT</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-ict.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-ict.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="business">
+              <h4>Business Studies</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-business-studies.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-business-studies.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+          </div>
         </div>
-      `;
-    }else{
-      const file=`downloads/${slug(board.id)}-${slug(sub)}.pdf`;
-      subj.innerHTML=`
-        <h4>${sub}</h4>
-        <p>Syllabus outline & topics for ${sub}.</p>
-        <div class="actions">
-          <a class="view-btn" href="${file}" target="_blank">View</a>
-          <a class="dl-btn" href="${file}" download>Download</a>
+      </details>
+
+      <!-- IGCSE — Edexcel -->
+      <details data-board="edexcel" data-level="igcse">
+        <summary>
+          <div class="badge-icon">IG</div>
+          <div class="summary-text">
+            <div class="title">IGCSE — Edexcel</div>
+            <div class="sub">IGCSE — 7 subjects</div>
+          </div>
+          <div class="chev">▾</div>
+        </summary>
+        <div class="panel">
+          <div class="subjects-grid">
+            <div class="subject" data-subject="chemistry">
+              <h4>Chemistry</h4>
+              <p>Edexcel IGCSE syllabus.</p>
+              <div class="actions">
+                <a class="view" href="./Downlaods/IGCSE Edexcel chemistry.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="./Downlaods/IGCSE Edexcel chemistry.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Physics</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Biology</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Mathematics</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>English</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>ICT</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Business Studies</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+          </div>
         </div>
-      `;
-    }
-    body.appendChild(subj);
-  });
+      </details>
 
-  boardEl.appendChild(head);
-  boardEl.appendChild(body);
-  accordion.appendChild(boardEl);
+      <!-- GCSE — AQA -->
+      <details data-board="aqa" data-level="gcse">
+        <summary>
+          <div class="badge-icon">GC</div>
+          <div class="summary-text">
+            <div class="title">GCSE — AQA</div>
+            <div class="sub">GCSE — 7 subjects</div>
+          </div>
+          <div class="chev">▾</div>
+        </summary>
+        <div class="panel">
+          <div class="subjects-grid">
+            <div class="subject" data-subject="physics">
+              <h4>Chemistry</h4>
+              <p>AQA GCSE syllabus.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/gcse-aqa-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/gcse-aqa-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+             <div class="subject" data-subject="physics">
+              <h4>Biology</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Mathematics</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>English</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>ICT</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Business Studies</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="panel">
+          <div class="subjects-grid">
+            <div class="subject" data-subject="physics">
+              <h4>Physics</h4>
+              <p>AQA GCSE syllabus.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/gcse-aqa-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/gcse-aqa-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+             <div class="subject" data-subject="physics">
+              <h4>Biology</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Mathematics</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>English</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>ICT</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Business Studies</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+      
 
-  head.addEventListener('click',()=>{
-    const open=body.style.display==='grid';
-    document.querySelectorAll('.board-body').forEach(b=>b.style.display='none');
-    document.querySelectorAll('.chev').forEach(c=>c.textContent='▾');
-    if(!open){body.style.display='grid';head.querySelector('.chev').textContent='▴';}
-  });
-});
+      <!-- A-Levels — Cambridge -->
+      <details data-board="cambridge" data-level="alevel">
+        <summary>
+          <div class="badge-icon">A-</div>
+          <div class="summary-text">
+            <div class="title">A-Levels — Cambridge</div>
+            <div class="sub">A-Levels — 7 subjects</div>
+          </div>
+          <div class="chev">▾</div>
+        </summary>
+        <div class="panel">
+          <div class="subjects-grid">
+            <div class="subject" data-subject="chemistry">
+              <h4>Chemistry (AS)</h4>
+              <p>AS syllabus outline.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/alevel-cambridge-as-chemistry.pdf" target="_blank" rel="noopener">👁️ View AS</a>
+                <a class="download" href="/downloads/alevel-cambridge-as-chemistry.pdf" download>⬇️ Download AS</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="chemistry">
+              <h4>Chemistry (A2)</h4>
+              <p>A2 syllabus outline.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/alevel-cambridge-a2-chemistry.pdf" target="_blank" rel="noopener">👁️ View A2</a>
+                <a class="download" href="/downloads/alevel-cambridge-a2-chemistry.pdf" download>⬇️ Download A2</a>
+              </div>
+            </div>
+             <div class="subject" data-subject="physics">
+              <h4>Biology</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Mathematics</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>English</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>ICT</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Business Studies</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
 
-const q=document.getElementById('q');
-const tabs=document.querySelectorAll('.tab');
-function filter(text='',boardFilter='all'){
-  const t=text.trim().toLowerCase();
-  document.querySelectorAll('.board').forEach(board=>{
-    const tag=board.dataset.tag;
-    if(boardFilter!=='all'&&boardFilter!==tag){board.style.display='none';return;}
-    let found=false;
-    board.querySelectorAll('.subject').forEach(subj=>{
-      const title=subj.querySelector('h4').textContent.toLowerCase();
-      subj.style.display=!t||title.includes(t)?'':'none';
-      if(!t||title.includes(t))found=true;
-    });
-    board.style.display=found?'':'none';
-  });
-}
-q.addEventListener('input',()=>filter(q.value,document.querySelector('.tab.active').dataset.filter));
-tabs.forEach(tab=>tab.addEventListener('click',()=>{
-  tabs.forEach(t=>t.classList.remove('active'));
-  tab.classList.add('active');
-  filter(q.value,tab.dataset.filter);
-}));
-</script>
-</body>
-</html>
-
+      <!-- A-Levels — Edexcel -->
+      <details data-board="edexcel" data-level="alevel">
+        <summary>
+          <div class="badge-icon">A-</div>
+          <div class="summary-text">
+            <div class="title">A-Levels — Edexcel</div>
+            <div class="sub">A-Levels — 7 subjects</div>
+          </div>
+          <div class="chev">▾</div>
+        </summary>
+        <div class="panel">
+          <div class="subjects-grid">
+            <div class="subject" data-subject="biology">
+            <h4>Chemistry (AS)</h4>
+              <p>AS syllabus outline.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/alevel-cambridge-as-chemistry.pdf" target="_blank" rel="noopener">👁️ View AS</a>
+                <a class="download" href="/downloads/alevel-cambridge-as-chemistry.pdf" download>⬇️ Download AS</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="chemistry">
+              <h4>Chemistry (A2)</h4>
+              <p>A2 syllabus outline.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/alevel-cambridge-a2-chemistry.pdf" target="_blank" rel="noopener">👁️ View A2</a>
+                <a class="download" href="/downloads/alevel-cambridge-a2-chemistry.pdf" download>⬇️ Download A2</a>
+              </div>
+            </div>
+             <div class="subject" data-subject="physics">
+              <h4>Biology</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Mathematics</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>English</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>ICT</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+            <div class="subject" data-subject="physics">
+              <h4>Business Studies</h4>
+              <p>O-Level syllabus & topics.</p>
+              <div class="actions">
+                <a class="view" href="/downloads/olevel-cambridge-physics.pdf" target="_blank" rel="noopener">👁️ View</a>
+                <a class="download" href="/downloads/olevel-cambridge-physics.pdf" download>⬇️ Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
