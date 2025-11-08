@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chemista Academy — About Us</title>
+  <meta name="description" content="Learn about Chemista Academy - Our mission, vision, and commitment to excellence." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1e3a5f;
+      --yellow: #f7ce46;
+      --white: #ffffff;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --shadow: 0 4px 15px rgba(30, 58, 95, 0.08);
+      --shadow-lg: 0 8px 25px rgba(30, 58, 95, 0.12);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5990 100%);
+      color: white;
+      padding: 16px 24px;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      animation: slideDown 0.5s ease-out;
+    }
+    
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .logo-img {
+      height: 50px;
+      width: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .logo-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0;
+      animation: fadeInLeft 0.6s ease-out;
+    }
+    
+    .logo-text p {
+      font-size: 13px;
+      margin-top: 2px;
+      opacity: 0.95;
+      font-weight: 400;
+      animation: fadeInLeft 0.7s ease-out;
+    }
+    
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .back-btn {
+      background: var(--yellow);
+      color: var(--navy);
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(247, 206, 70, 0.3);
+      animation: fadeInRight 0.6s ease-out;
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .back-btn:hover {
+      background: #ffd54f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(247, 206, 70, 0.4);
+    }
+    
+    .hero-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5990 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--yellow);
+    }
+    
+    .hero-subtitle {
+      font-size: 20px;
+      line-height: 1.8;
+      opacity: 0.95;
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .mission-vision {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .mv-card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mv-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--navy), var(--yellow));
+    }
+    
+    .mv-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(30, 58, 95, 0.15);
+    }
+    
+    .mv-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    
+    .mv-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 15px;
+    }
+    
+    .mv-text {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+    
+    .section-title h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    
+    .section-title p {
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+    
+    .why-choose {
+      margin-bottom: 80px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      animation: zoomIn 0.6s ease-out backwards;
+    }
+    
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    .feature-card:nth-child(4) { animation-delay: 0.4s; }
+    .feature-card:nth-child(5) { animation-delay: 0.5s; }
+    .feature-card:nth-child(6) { animation-delay: 0.6s; }
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border: 2px solid var(--yellow);
+    }
+    
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--navy), #2d5990);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 20px;
+    }
+    
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    
+    .feature-text {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    
+    .certifications {
+      margin-bottom: 80px;
+    }
+    
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .cert-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .cert-card:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .cert-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+      display: block;
+    }
+    
+    .cert-info {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .cert-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    
+    .cert-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    
+    .stats-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5990 100%);
+      padding: 60px 20px;
+      border-radius: 20px;
+      margin-bottom: 80px;
+      animation: fadeInUp 1.4s ease-out;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .stat-item {
+      text-align: center;
+      color: white;
+    }
+    
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--yellow);
+      margin-bottom: 10px;
+      display: block;
+    }
+    
+    .stat-label {
+      font-size: 16px;
+      font-weight: 600;
+      opacity: 0.95;
+    }
+    
+    .team-section {
+      margin-bottom: 80px;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .team-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .team-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--navy), #2d5990);
+      display: block;
+    }
+    
+    .team-info {
+      padding: 25px;
+    }
+    
+    .team-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+    
+    .team-role {
+      font-size: 15px;
+      color: var(--yellow);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .team-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5990 100%);
+      padding: 60px 40px;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      margin-bottom: 60px;
+    }
+    
+    .cta-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--yellow);
+      margin-bottom: 20px;
+    }
+    
+    .cta-text {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+    
+    .cta-btn {
+      background: var(--yellow);
+      color: var(--navy);
+      padding: 15px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(247, 206, 70, 0.4);
+    }
+    
+    .cta-btn:hover {
+      background: #ffd54f;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(247, 206, 70, 0.5);
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .modal.show {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-close:hover {
+      color: var(--yellow);
+      transform: scale(1.2);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: var(--navy);
+      color: white;
+      font-size: 14px;
+    }
+    
+    footer a {
+      color: var(--yellow);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    footer a:hover {
+      color: #ffd54f;
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+      .logo-text h1 {
+        font-size: 16px;
+      }
+      
+      .logo-text p {
+        font-size: 11px;
+      }
+      
+      .hero-title {
+        font-size: 32px;
+      }
+      
+      .hero-subtitle {
+        font-size: 16px;
+      }
+      
+      .section-title h2 {
+        font-size: 28px;
+      }
+      
+      .stat-number {
+        font-size: 36px;
+      }
+      
+      .cta-title {
+        font-size: 28px;
+      }
+      
+      .features-grid,
+      .cert-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="./Img/Logo.jpeg" alt="Chemista Academy" class="logo-img">
+        <div class="logo-text">
+          <h1>Chemista Academy</h1>
+          <p>Excellence in Education</p>
+        </div>
+      </div>
+      <a href="index.html" class="back-btn">⬅ Back to Home</a>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">About Chemista Academy</h1>
+      <p class="hero-subtitle">Empowering students to achieve academic excellence through expert guidance, innovative teaching methods, and personalized learning experiences.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="mission-vision">
+      <div class="mv-card">
+        <div class="mv-icon">🎯</div>
+        <h3 class="mv-title">Our Mission</h3>
+        <p class="mv-text">To provide world-class education and guidance to students pursuing IGCSE, O-Levels, A-Levels, and GCSE qualifications, fostering academic excellence and personal growth.</p>
+      </div>
+      
+      <div class="mv-card">
+        <div class="mv-icon">🌟</div>
+        <h3 class="mv-title">Our Vision</h3>
+        <p class="mv-text">To be the leading educational institution, recognized for producing top-performing students who excel in their academic pursuits and become future leaders.</p>
+      </div>
+      
+      <div class="mv-card">
+        <div class="mv-icon">💡</div>
+        <h3 class="mv-title">Our Values</h3>
+        <p class="mv-text">Excellence, Integrity, Innovation, and Dedication. We believe in nurturing talent, building confidence, and creating opportunities for every student.</p>
+      </div>
+    </section>
+
+    <section class="why-choose">
+      <div class="section-title">
+        <h2>Why Choose Chemista Academy?</h2>
+        <p>Discover what makes us the preferred choice for thousands of students</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🏫</div>
+          <h4 class="feature-title">Expert Teachers</h4>
+          <p class="feature-text">Highly qualified and experienced educators dedicated to student success.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h4 class="feature-title">Comprehensive Courses</h4>
+          <p class="feature-text">Complete syllabus coverage for all major examination boards.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h4 class="feature-title">Proven Results</h4>
+          <p class="feature-text">95% success rate with exceptional A* and A grades.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h4 class="feature-title">Modern Resources</h4>
+          <p class="feature-text">State-of-the-art learning materials and digital resources.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h4 class="feature-title">Personal Support</h4>
+          <p class="feature-text">Individual attention and customized learning plans.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h4 class="feature-title">Excellence Track Record</h4>
+          <p class="feature-text">Consistent top performers and university admissions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-banner">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Students Enrolled</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">95%</span>
+          <span class="stat-label">Success Rate</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">150+</span>
+          <span class="stat-label">A* Grades</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="certifications">
+      <div class="section-title">
+        <h2>🏅 Certifications </h2>
+        <p>Chemista Academy — Officially recognized and certified by leading educational bodies.”
+Najma Atif CEO</p>
+      </div>
+      
+      <div class="cert-grid">
+        <div class="cert-card" onclick="openModal(this)">
+          <img src="./WhatsApp Image 2025-11-08 at 1.36.14 PM.jpeg" alt="Certification" class="cert-image" onerror="this.src='https://via.placeholder.com/400x300/1e3a5f/f7ce46?text=Cambridge+Certification'">
+          <div class="cert-info">
+            <h4 class="cert-title">Cambridge Registered</h4>
+            <p class="cert-desc">Official Cambridge Assessment Partner</p>
+          </div>
+        </div>
+        
+        <div class="cert-card" onclick="openModal(this)">
+          <img src="./WhatsApp Image 2025-11-08 at 1.36.15 PM (1).jpeg" alt="Certification" class="cert-image" onerror="this.src='https://via.placeholder.com/400x300/1e3a5f/f7ce46?text=Edexcel+Certification'">
+          <div class="cert-info">
+            <h4 class="cert-title">Certified teacher</h4>
+            <p class="cert-desc">IGCSE and A levels Edexcel</p>
+          </div>
+        </div>
+        
+        <div class="cert-card" onclick="openModal(this)">
+          <img src="./WhatsApp Image 2025-11-08 at 1.36.15 PM.jpeg" alt="Certification" class="cert-image" onerror="this.src='https://via.placeholder.com/400x300/1e3a5f/f7ce46?text=AQA+Certification'">
+          <div class="cert-info">
+            <h4 class="cert-title">Certified teacher</h4>
+            <p class="cert-desc">IGCSE and A levels Edexcel</p>
+          </div>
+        </div>
+        
+        <div class="cert-card" onclick="openModal(this)">
+          <img src="./WhatsApp Image 2025-11-08 at 1.36.15 PM.jpeg" alt="Certification" class="cert-image" onerror="this.src='https://via.placeholder.com/400x300/1e3a5f/f7ce46?text=Quality+Award'">
+          <div class="cert-info">
+            <h4 class="cert-title">Certified teache</h4>
+            <p class="cert-desc">IGCSE and A levels Edexce</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-section">
+      <div class="section-title">
+        <h2>👥 Meet Our Expert Team</h2>
+        <p>Dedicated professionals committed to your success</p>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="./Img/teacher1.jpg" alt="Teacher" class="team-image" onerror="this.src='https://via.placeholder.com/300x280/1e3a5f/f7ce46?text=Chemistry+Expert'">
+          <div class="team-info">
+            <h4 class="team-name">>Najma Atif</h4>
+            <p class="team-role">CEO Chemsita Acdemy </p>
+            <p class="team-desc">Chemistry — M.phil Chemistry 18+ years experience</p>
+          </div>
+        </div>
+        
+        <div class="team-card">
+          <img src="./Img/teacher2.jpg" alt="Teacher" class="team-image" onerror="this.src='https://via.placeholder.com/300x280/1e3a5f/f7ce46?text=Physics+Expert'">
+          <div class="team-info">
+            <h4 class="team-name">Prof. Ahmed Khan</h4>
+            <p class="team-role">Head of Physics</p>
+            <p class="team-desc">Masters in Physics, Cambridge examiner</p>
+          </div>
+        </div>
+        
+        <div class="team-card">
+          <img src="./Img/teacher3.jpg" alt="Teacher" class="team-image" onerror="this.src='https://via.placeholder.com/300x280/1e3a5f/f7ce46?text=Biology+Expert'">
+          <div class="team-info">
+            <h4 class="team-name">Farah Saeed</h4>
+            <p class="team-role">Instructor</p>
+            <p class="team-desc">MSc Zoology from Karachi University 20+ years Experience</p>
+          </div>
+        </div>
+        
+        <div class="team-card">
+          <img src="./Img/teacher4.jpg" alt="Teacher" class="team-image" onerror="this.src='https://via.placeholder.com/300x280/1e3a5f/f7ce46?text=Math+Expert'">
+          <div class="team-info">
+            <h4 class="team-name">Mr. Hassan Raza</h4>
+            <p class="team-role">Head of Mathematics</p>
+            <p class="team-desc">Masters in Mathematics, Top results producer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2 class="cta-title">Ready to Start Your Journey?</h2>
+      <p class="cta-text">Join thousands of successful students at Chemista Academy</p>
+      <a href="contact.html" class="cta-btn">Enroll Now 🚀</a>
+    </section>
+  </main>
+
+  <div class="modal" id="certModal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Certificate">
+  </div>
+
+  <footer>
+    © 2025 Chemista Academy | <a href="https://ahmedshah-portfolio.netlify.app/" target="_blank">Designed by Ahmed Shah</a>
+  </footer>
+
+  <script>
+    function openModal(card) {
+      const modal = document.getElementById('certModal');
+      const modalImg = document.getElementById('modalImage');
+      const img = card.querySelector('.cert-image, .team-image');
+      
+      modal.classList.add('show');
+      modalImg.src = img.src;
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('certModal');
+      modal.classList.remove('show');
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('certModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
