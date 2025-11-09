@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chemista Academy — About Us</title>
-     <link rel="icon" type="./logo" href="./Logo">
-  <meta name="description" content="Learn about Chemista Academy - Our mission, vision, and commitment to excellence." />
+  <title>Chemista Academy — Books & Resources</title>
+  <meta name="description" content="Download premium study books and resources for IGCSE, O-Levels, A-Levels, and GCSE." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -145,21 +144,11 @@
       box-shadow: 0 6px 16px rgba(247, 206, 70, 0.4);
     }
     
-    .hero-section {
-      background: linear-gradient(135deg, var(--navy) 0%, #2d5990 100%);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero-content {
-      max-width: 800px;
+    main {
+      max-width: 1200px;
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
-      animation: fadeInUp 0.8s ease-out;
+      padding: 40px 20px;
+      animation: fadeInUp 0.6s ease-out;
     }
     
     @keyframes fadeInUp {
@@ -173,112 +162,142 @@
       }
     }
     
-    .hero-title {
+    .page-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .page-title {
       font-size: 48px;
       font-weight: 800;
-      margin-bottom: 20px;
-      color: var(--yellow);
-    }
-    
-    .hero-subtitle {
-      font-size: 20px;
-      line-height: 1.8;
-      opacity: 0.95;
-    }
-    
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-    
-    .mission-vision {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 80px;
-      animation: fadeInUp 1s ease-out;
-    }
-    
-    .mv-card {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      text-align: center;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .mv-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--navy), var(--yellow));
-    }
-    
-    .mv-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(30, 58, 95, 0.15);
-    }
-    
-    .mv-icon {
-      font-size: 64px;
-      margin-bottom: 20px;
-      display: inline-block;
-    }
-    
-    .mv-title {
-      font-size: 28px;
-      font-weight: 700;
       color: var(--navy);
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+      animation: fadeInUp 0.7s ease-out;
     }
     
-    .mv-text {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-    
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-      animation: fadeInUp 1.2s ease-out;
-    }
-    
-    .section-title h2 {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-    
-    .section-title p {
+    .page-sub {
       font-size: 18px;
       color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease-out;
     }
     
-    .why-choose {
-      margin-bottom: 80px;
+    .search-filter {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.9s ease-out;
     }
     
-    .features-grid {
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      align-items: center;
+      background: white;
+      padding: 14px 24px;
+      border-radius: 50px;
+      box-shadow: var(--shadow);
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .search-box:focus-within {
+      box-shadow: 0 6px 20px rgba(30, 58, 95, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    .search-box input {
+      border: 0;
+      outline: none;
+      font-size: 15px;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+    }
+    
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .filter-chips {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .chip {
+      background: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      box-shadow: var(--shadow);
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .chip:hover, .chip.active {
+      background: var(--yellow);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .chip.active {
+      background: var(--navy);
+      color: var(--yellow);
+      border-color: var(--yellow);
+    }
+    
+    .category-section {
+      margin-bottom: 60px;
+    }
+    
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid var(--yellow);
+    }
+    
+    .category-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--navy), #2d5990);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: var(--shadow);
+    }
+    
+    .category-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    
+    .books-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 30px;
     }
     
-    .feature-card {
+    .book-card {
       background: white;
-      padding: 30px;
-      border-radius: 16px;
+      border-radius: 20px;
+      overflow: hidden;
       box-shadow: var(--shadow);
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
       animation: zoomIn 0.6s ease-out backwards;
     }
     
@@ -293,262 +312,162 @@
       }
     }
     
-    .feature-card:nth-child(1) { animation-delay: 0.1s; }
-    .feature-card:nth-child(2) { animation-delay: 0.2s; }
-    .feature-card:nth-child(3) { animation-delay: 0.3s; }
-    .feature-card:nth-child(4) { animation-delay: 0.4s; }
-    .feature-card:nth-child(5) { animation-delay: 0.5s; }
-    .feature-card:nth-child(6) { animation-delay: 0.6s; }
+    .book-card:nth-child(1) { animation-delay: 0.1s; }
+    .book-card:nth-child(2) { animation-delay: 0.15s; }
+    .book-card:nth-child(3) { animation-delay: 0.2s; }
+    .book-card:nth-child(4) { animation-delay: 0.25s; }
+    .book-card:nth-child(5) { animation-delay: 0.3s; }
+    .book-card:nth-child(6) { animation-delay: 0.35s; }
     
-    .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border: 2px solid var(--yellow);
+    .book-card:hover {
+      transform: translateY(-12px) rotate(-1deg);
+      box-shadow: 0 20px 40px rgba(30, 58, 95, 0.2);
     }
     
-    .feature-icon {
-      width: 70px;
-      height: 70px;
+    .book-cover {
+      position: relative;
+      height: 320px;
       background: linear-gradient(135deg, var(--navy), #2d5990);
-      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 32px;
-      margin: 0 auto 20px;
+      overflow: hidden;
     }
     
-    .feature-title {
+    .book-cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(247,206,70,0.1)"/></svg>');
+      opacity: 0.5;
+    }
+    
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .book-card:hover .book-cover img {
+      transform: scale(1.1);
+    }
+    
+    .book-icon {
+      font-size: 80px;
+      color: var(--yellow);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .premium-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--yellow);
+      color: var(--navy);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+    
+    .book-info {
+      padding: 25px;
+    }
+    
+    .book-title {
       font-size: 20px;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 10px;
-    }
-    
-    .feature-text {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    
-    .certifications {
-      margin-bottom: 80px;
-    }
-    
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    
-    .cert-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .cert-card:hover {
-      transform: scale(1.05);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .cert-image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
-      display: block;
-    }
-    
-    .cert-info {
-      padding: 20px;
-      text-align: center;
-    }
-    
-    .cert-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
       margin-bottom: 8px;
+      line-height: 1.4;
     }
     
-    .cert-desc {
+    .book-author {
       font-size: 14px;
       color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    
+    .book-meta {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    
+    .download-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--navy), #2d5990);
+      color: white;
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+    }
+    
+    .download-btn:hover {
+      background: linear-gradient(135deg, #2d5990, var(--navy));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30, 58, 95, 0.4);
     }
     
     .stats-banner {
       background: linear-gradient(135deg, var(--navy) 0%, #2d5990 100%);
-      padding: 60px 20px;
+      padding: 50px 30px;
       border-radius: 20px;
-      margin-bottom: 80px;
-      animation: fadeInUp 1.4s ease-out;
+      margin-bottom: 60px;
+      text-align: center;
     }
     
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      max-width: 1000px;
+      gap: 30px;
+      max-width: 900px;
       margin: 0 auto;
     }
     
     .stat-item {
-      text-align: center;
       color: white;
     }
     
     .stat-number {
-      font-size: 48px;
+      font-size: 42px;
       font-weight: 800;
       color: var(--yellow);
-      margin-bottom: 10px;
       display: block;
+      margin-bottom: 8px;
     }
     
     .stat-label {
-      font-size: 16px;
-      font-weight: 600;
-      opacity: 0.95;
-    }
-    
-    .team-section {
-      margin-bottom: 80px;
-    }
-    
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    
-    .team-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-    
-    .team-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .team-image {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      background: linear-gradient(135deg, var(--navy), #2d5990);
-      display: block;
-    }
-    
-    .team-info {
-      padding: 25px;
-    }
-    
-    .team-name {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 5px;
-    }
-    
-    .team-role {
       font-size: 15px;
-      color: var(--yellow);
       font-weight: 600;
-      margin-bottom: 10px;
-    }
-    
-    .team-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-    
-    .cta-section {
-      background: linear-gradient(135deg, var(--navy) 0%, #2d5990 100%);
-      padding: 60px 40px;
-      border-radius: 20px;
-      text-align: center;
-      color: white;
-      margin-bottom: 60px;
-    }
-    
-    .cta-title {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--yellow);
-      margin-bottom: 20px;
-    }
-    
-    .cta-text {
-      font-size: 18px;
-      margin-bottom: 30px;
       opacity: 0.95;
-    }
-    
-    .cta-btn {
-      background: var(--yellow);
-      color: var(--navy);
-      padding: 15px 40px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 18px;
-      display: inline-block;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(247, 206, 70, 0.4);
-    }
-    
-    .cta-btn:hover {
-      background: #ffd54f;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(247, 206, 70, 0.5);
-    }
-    
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      animation: fadeIn 0.3s ease-out;
-    }
-    
-    .modal.show {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .modal-content {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-    }
-    
-    .modal-close {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 40px;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .modal-close:hover {
-      color: var(--yellow);
-      transform: scale(1.2);
     }
     
     footer {
@@ -557,6 +476,7 @@
       background: var(--navy);
       color: white;
       font-size: 14px;
+      margin-top: 60px;
     }
     
     footer a {
@@ -580,30 +500,33 @@
         font-size: 11px;
       }
       
-      .hero-title {
+      .page-title {
         font-size: 32px;
       }
       
-      .hero-subtitle {
+      .page-sub {
         font-size: 16px;
       }
       
-      .section-title h2 {
-        font-size: 28px;
+      .search-filter {
+        flex-direction: column;
       }
       
-      .stat-number {
-        font-size: 36px;
+      .search-box {
+        width: 100%;
       }
       
-      .cta-title {
-        font-size: 28px;
+      .filter-chips {
+        width: 100%;
+        justify-content: center;
       }
       
-      .features-grid,
-      .cert-grid,
-      .team-grid {
+      .books-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .category-title {
+        font-size: 24px;
       }
     }
   </style>
@@ -612,239 +535,428 @@
   <header>
     <div class="header-inner">
       <div class="logo">
-        <img src="./Logo" alt="Chemista Academy" class="logo-img">
+        <img src="./Img/Logo.jpeg" alt="Chemista Academy" class="logo-img">
         <div class="logo-text">
           <h1>Chemista Academy</h1>
-          <p>Excellence in Education</p>
+          <p>Premium Study Resources</p>
         </div>
       </div>
       <a href="index.html" class="back-btn">⬅ Back to Home</a>
     </div>
   </header>
 
-  <section class="hero-section">
-    <div class="hero-content">
-      <h1 class="hero-title">About Chemista Academy</h1>
-      <p class="hero-subtitle">Empowering students to achieve academic excellence through expert guidance, innovative teaching methods, and personalized learning experiences.</p>
-    </div>
-  </section>
-
   <main>
-    <section class="mission-vision">
-      <div class="mv-card">
-        <div class="mv-icon">🎯</div>
-        <h3 class="mv-title">Our Mission</h3>
-        <p class="mv-text">To provide world-class education and guidance to students pursuing IGCSE, O-Levels, A-Levels, and GCSE qualifications, fostering academic excellence and personal growth.</p>
-      </div>
-      
-      <div class="mv-card">
-        <div class="mv-icon">🌟</div>
-        <h3 class="mv-title">Our Vision</h3>
-        <p class="mv-text">To be the leading educational institution, recognized for producing top-performing students who excel in their academic pursuits and become future leaders.</p>
-      </div>
-      
-      <div class="mv-card">
-        <div class="mv-icon">💡</div>
-        <h3 class="mv-title">Our Values</h3>
-        <p class="mv-text">Excellence, Integrity, Innovation, and Dedication. We believe in nurturing talent, building confidence, and creating opportunities for every student.</p>
-      </div>
-    </section>
+    <div class="page-head">
+      <div class="page-title">📚 Books & Resources</div>
+      <div class="page-sub">Download premium study materials, textbooks, and revision guides for all major examination boards</div>
+    </div>
 
-    <section class="why-choose">
-      <div class="section-title">
-        <h2>Why Choose Chemista Academy?</h2>
-        <p>Discover what makes us the preferred choice for thousands of students</p>
-      </div>
-      
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">👨‍🏫</div>
-          <h4 class="feature-title">Expert Teachers</h4>
-          <p class="feature-text">Highly qualified and experienced educators dedicated to student success.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">📚</div>
-          <h4 class="feature-title">Comprehensive Courses</h4>
-          <p class="feature-text">Complete syllabus coverage for all major examination boards.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🎓</div>
-          <h4 class="feature-title">Proven Results</h4>
-          <p class="feature-text">95% success rate with exceptional A* and A grades.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">💻</div>
-          <h4 class="feature-title">Modern Resources</h4>
-          <p class="feature-text">State-of-the-art learning materials and digital resources.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🤝</div>
-          <h4 class="feature-title">Personal Support</h4>
-          <p class="feature-text">Individual attention and customized learning plans.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🏆</div>
-          <h4 class="feature-title">Excellence Track Record</h4>
-          <p class="feature-text">Consistent top performers and university admissions.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats-banner">
+    <div class="stats-banner">
       <div class="stats-grid">
         <div class="stat-item">
           <span class="stat-number">500+</span>
-          <span class="stat-label">Students Enrolled</span>
+          <span class="stat-label">Books Available</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">95%</span>
-          <span class="stat-label">Success Rate</span>
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Free Downloads</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">150+</span>
-          <span class="stat-label">A* Grades</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">10+</span>
-          <span class="stat-label">Years Experience</span>
+          <span class="stat-number">50K+</span>
+          <span class="stat-label">Downloads</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="certifications">
-      <div class="section-title">
-        <h2>🏅 Certifications </h2>
-        <p>Chemista Academy — Officially recognized and certified by leading educational bodies.”
-Najma Atif CEO</p>
+    <div class="search-filter">
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="searchInput" placeholder="Search books by title, author, or subject..." />
+      </div>
+      <div class="filter-chips">
+        <div class="chip active" data-filter="all">All Books</div>
+        <div class="chip" data-filter="chemistry">Chemistry</div>
+        <div class="chip" data-filter="physics">Physics</div>
+        <div class="chip" data-filter="biology">Biology</div>
+        <div class="chip" data-filter="mathematics">Mathematics</div>
+      </div>
+    </div>
+
+    <!-- IGCSE Section -->
+    <section class="category-section" data-category="all chemistry physics biology mathematics">
+      <div class="category-header">
+        <div class="category-icon">📖</div>
+        <h2 class="category-title">IGCSE Books</h2>
       </div>
       
-      <div class="cert-grid">
-        <div class="cert-card" onclick="openModal(this)">
-          <img src="./WhatsApp Image 2025-11-08 at 1.36.14 PM.jpeg" alt="Certification" class="cert-image" onerror="this.src='https://via.placeholder.com/400x300/1e3a5f/f7ce46?text=Cambridge+Certification'">
-          <div class="cert-info">
-            <h4 class="cert-title">Cambridge Registered</h4>
-            <p class="cert-desc">Official Cambridge Assessment Partner</p>
+      <div class="books-grid">
+        <div class="book-card" data-subject="chemistry">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">🧪</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">IGCSE Chemistry Complete Guide</h3>
+            <p class="book-author">Cambridge International</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 450 Pages</span>
+              <span class="meta-item">💾 25 MB</span>
+            </div>
+            <a href="/books/igcse-chemistry.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
           </div>
         </div>
-        
-        <div class="cert-card" onclick="openModal(this)">
-          <img src="./WhatsApp Image 2025-11-08 at 1.36.15 PM (1).jpeg" alt="Certification" class="cert-image" onerror="this.src='https://via.placeholder.com/400x300/1e3a5f/f7ce46?text=Edexcel+Certification'">
-          <div class="cert-info">
-            <h4 class="cert-title">Certified teacher</h4>
-            <p class="cert-desc">IGCSE and A levels Edexcel</p>
+
+        <div class="book-card" data-subject="physics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">⚡</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">IGCSE Physics Textbook</h3>
+            <p class="book-author">Cambridge Assessment</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 380 Pages</span>
+              <span class="meta-item">💾 22 MB</span>
+            </div>
+            <a href="/books/igcse-physics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
           </div>
         </div>
-        
-        <div class="cert-card" onclick="openModal(this)">
-          <img src="./WhatsApp Image 2025-11-08 at 1.36.15 PM.jpeg" alt="Certification" class="cert-image" onerror="this.src='https://via.placeholder.com/400x300/1e3a5f/f7ce46?text=AQA+Certification'">
-          <div class="cert-info">
-            <h4 class="cert-title">Certified teacher</h4>
-            <p class="cert-desc">IGCSE and A levels Edexcel</p>
+
+        <div class="book-card" data-subject="biology">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">🧬</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">IGCSE Biology Revision Guide</h3>
+            <p class="book-author">Edexcel International</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 420 Pages</span>
+              <span class="meta-item">💾 28 MB</span>
+            </div>
+            <a href="/books/igcse-biology.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
           </div>
         </div>
-        
-        <div class="cert-card" onclick="openModal(this)">
-          <img src="./WhatsApp Image 2025-11-08 at 1.36.15 PM.jpeg" alt="Certification" class="cert-image" onerror="this.src='https://via.placeholder.com/400x300/1e3a5f/f7ce46?text=Quality+Award'">
-          <div class="cert-info">
-            <h4 class="cert-title">Certified teache</h4>
-            <p class="cert-desc">IGCSE and A levels Edexce</p>
+
+        <div class="book-card" data-subject="mathematics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">📐</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">IGCSE Mathematics Core</h3>
+            <p class="book-author">Cambridge Board</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 500 Pages</span>
+              <span class="meta-item">💾 30 MB</span>
+            </div>
+            <a href="/books/igcse-mathematics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="team-section">
-      <div class="section-title">
-        <h2>👥 Meet Our Expert Team</h2>
-        <p>Dedicated professionals committed to your success</p>
+    <!-- O-Levels Section -->
+    <section class="category-section" data-category="all chemistry physics biology mathematics">
+      <div class="category-header">
+        <div class="category-icon">📕</div>
+        <h2 class="category-title">O-Levels Books</h2>
       </div>
       
-      <div class="team-grid">
-        <div class="team-card">
-          <img src="./chemistry.png" alt="Teacher" class="team-image" onerror="this.src='https://via.placeholder.com/300x280/1e3a5f/f7ce46?text=Chemistry+Expert'">
-          <div class="team-info">
-            <h4 class="team-name">Najma Atif</h4>
-            <p class="team-role">CEO Chemsita Acdemy </p>
-            <p class="team-desc">Chemistry — M.phil Chemistry 18+ years experience</p>
+      <div class="books-grid">
+        <div class="book-card" data-subject="chemistry">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">🧪</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">O-Level Chemistry Textbook</h3>
+            <p class="book-author">Cambridge O-Levels</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 400 Pages</span>
+              <span class="meta-item">💾 24 MB</span>
+            </div>
+            <a href="/books/olevel-chemistry.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
           </div>
         </div>
-        
-        <div class="team-card">
-          <img src="./Bio.jpeg" alt="Teacher" class="team-image" onerror="this.src='https://via.placeholder.com/300x280/1e3a5f/f7ce46?text=Physics+Expert'">
-          <div class="team-info">
-            <h4 class="team-name">Farah Saeed</h4>
-            <p class="team-role">Instructor</p>
-            <p class="team-desc">MSc Zoology from Karachi University 20+ years Experience</p>
+
+        <div class="book-card" data-subject="physics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">⚡</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">O-Level Physics Complete</h3>
+            <p class="book-author">Cambridge Board</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 360 Pages</span>
+              <span class="meta-item">💾 21 MB</span>
+            </div>
+            <a href="/books/olevel-physics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
           </div>
         </div>
-        
-        <div class="team-card">
-          <img src="./Math.jpeg" alt="Teacher" class="team-image" onerror="this.src='https://via.placeholder.com/300x280/1e3a5f/f7ce46?text=Biology+Expert'">
-          <div class="team-info">
-            <h4 class="team-name">Mahnoor Adil</h4>
-            <p class="team-role">Instructor</p>
-            <p class="team-desc">MSc in Applied Mathematics 12 years Experience</p>
+
+        <div class="book-card" data-subject="biology">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">🧬</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">O-Level Biology Essentials</h3>
+            <p class="book-author">Cambridge International</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 390 Pages</span>
+              <span class="meta-item">💾 26 MB</span>
+            </div>
+            <a href="/books/olevel-biology.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
           </div>
         </div>
-        
-        <div class="team-card">
-          <img src="./Img/teacher4.jpg" alt="Teacher" class="team-image" onerror="this.src='https://via.placeholder.com/300x280/1e3a5f/f7ce46?text=Math+Expert'">
-          <div class="team-info">
-            <h4 class="team-name">Ahmed SHah</h4>
-            <p class="team-role">Social MEDIA Manager </p>
-            <p class="team-desc"></p>
+
+        <div class="book-card" data-subject="mathematics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">📐</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">O-Level Mathematics</h3>
+            <p class="book-author">Cambridge Syllabus</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 480 Pages</span>
+              <span class="meta-item">💾 29 MB</span>
+            </div>
+            <a href="/books/olevel-mathematics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cta-section">
-      <h2 class="cta-title">Ready to Start Your Journey?</h2>
-      <p class="cta-text">Join thousands of successful students at Chemista Academy</p>
-      <a href="contact.html" class="cta-btn">Enroll Now 🚀</a>
+    <!-- A-Levels Section -->
+    <section class="category-section" data-category="all chemistry physics biology mathematics">
+      <div class="category-header">
+        <div class="category-icon">📗</div>
+        <h2 class="category-title">A-Levels Books</h2>
+      </div>
+      
+      <div class="books-grid">
+        <div class="book-card" data-subject="chemistry">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">🧪</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">A-Level Chemistry AS & A2</h3>
+            <p class="book-author">Cambridge A-Levels</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 550 Pages</span>
+              <span class="meta-item">💾 35 MB</span>
+            </div>
+            <a href="/books/alevel-chemistry.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card" data-subject="physics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">⚡</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">A-Level Physics Advanced</h3>
+            <p class="book-author">Cambridge Board</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 520 Pages</span>
+              <span class="meta-item">💾 32 MB</span>
+            </div>
+            <a href="/books/alevel-physics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card" data-subject="biology">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">🧬</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">A-Level Biology Complete</h3>
+            <p class="book-author">Edexcel A-Levels</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 580 Pages</span>
+              <span class="meta-item">💾 38 MB</span>
+            </div>
+            <a href="/books/alevel-biology.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card" data-subject="mathematics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">📐</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">A-Level Pure Mathematics</h3>
+            <p class="book-author">Cambridge A-Levels</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 600 Pages</span>
+              <span class="meta-item">💾 40 MB</span>
+            </div>
+            <a href="/books/alevel-mathematics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GCSE Section -->
+    <section class="category-section" data-category="all chemistry physics biology mathematics">
+      <div class="category-header">
+        <div class="category-icon">📘</div>
+        <h2 class="category-title">GCSE Books</h2>
+      </div>
+      
+      <div class="books-grid">
+        <div class="book-card" data-subject="chemistry">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">🧪</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">GCSE Chemistry AQA</h3>
+            <p class="book-author">AQA Examination Board</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 380 Pages</span>
+              <span class="meta-item">💾 23 MB</span>
+            </div>
+            <a href="/books/gcse-chemistry.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card" data-subject="physics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">⚡</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">GCSE Physics AQA</h3>
+            <p class="book-author">AQA Board</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 350 Pages</span>
+              <span class="meta-item">💾 20 MB</span>
+            </div>
+            <a href="/books/gcse-physics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card" data-subject="biology">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">🧬</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">GCSE Biology AQA</h3>
+            <p class="book-author">AQA Examination Board</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 370 Pages</span>
+              <span class="meta-item">💾 22 MB</span>
+            </div>
+            <a href="/books/gcse-biology.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card" data-subject="mathematics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">📐</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">GCSE Mathematics AQA</h3>
+            <p class="book-author">AQA Mathematics</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 460 Pages</span>
+              <span class="meta-item">💾 27 MB</span>
+            </div>
+            <a href="/books/gcse-mathematics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-
-  <div class="modal" id="certModal">
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage" alt="Certificate">
-  </div>
 
   <footer>
     © 2025 Chemista Academy | <a href="https://ahmedshah-portfolio.netlify.app/" target="_blank">Designed by Ahmed Shah</a>
   </footer>
 
   <script>
-    function openModal(card) {
-      const modal = document.getElementById('certModal');
-      const modalImg = document.getElementById('modalImage');
-      const img = card.querySelector('.cert-image, .team-image');
+    // Filter functionality
+    const filterChips = document.querySelectorAll('.chip');
+    const bookCards = document.querySelectorAll('.book-card');
+    const sections = document.querySelectorAll('.category-section');
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        // Remove active from all chips
+        filterChips.forEach(c => c.classList.remove('active'));
+        // Add active to clicked chip
+        chip.classList.add('active');
+        
+        const filter = chip.dataset.filter;
+        
+        // Filter books
+        bookCards.forEach(card => {
+          if (filter === 'all' || card.dataset.subject === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
       
-      modal.classList.add('show');
-      modalImg.src = img.src;
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('certModal');
-      modal.classList.remove('show');
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('certModal');
-      if (event.target === modal) {
-        closeModal();
-      }
-    }
+      bookCards.forEach(card => {
+        const title = card.querySelector('.book-title').textContent.toLowerCase();
+        const author = card.querySelector('.book-author').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || author.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
