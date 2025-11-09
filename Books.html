@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Chemista Academy — Books & Resources</title>
-     <link rel="icon" type="/Logo" href="./Logo">
   <meta name="description" content="Download premium study books and resources for IGCSE, O-Levels, A-Levels, and GCSE." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -536,7 +535,7 @@
   <header>
     <div class="header-inner">
       <div class="logo">
-        <img src="./Logo" alt="Chemista Academy" class="logo-img">
+        <img src="./Img/Logo.jpeg" alt="Chemista Academy" class="logo-img">
         <div class="logo-text">
           <h1>Chemista Academy</h1>
           <p>Premium Study Resources</p>
@@ -849,8 +848,115 @@
               <span class="meta-item">📄 380 Pages</span>
               <span class="meta-item">💾 23 MB</span>
             </div>
+            <a href="/books/gcse-chemistry.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
 
-            <a href="/books/gcse-chemistry.pdf" class="download-btn">
+        <div class="book-card" data-subject="physics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">⚡</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">GCSE Physics AQA</h3>
+            <p class="book-author">AQA Board</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 350 Pages</span>
+              <span class="meta-item">💾 20 MB</span>
+            </div>
+            <a href="/books/gcse-physics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
 
+        <div class="book-card" data-subject="biology">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">🧬</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">GCSE Biology AQA</h3>
+            <p class="book-author">AQA Examination Board</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 370 Pages</span>
+              <span class="meta-item">💾 22 MB</span>
+            </div>
+            <a href="/books/gcse-biology.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
 
+        <div class="book-card" data-subject="mathematics">
+          <div class="book-cover">
+            <span class="premium-badge">⭐ Premium</span>
+            <span class="book-icon">📐</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">GCSE Mathematics AQA</h3>
+            <p class="book-author">AQA Mathematics</p>
+            <div class="book-meta">
+              <span class="meta-item">📄 460 Pages</span>
+              <span class="meta-item">💾 27 MB</span>
+            </div>
+            <a href="/books/gcse-mathematics.pdf" class="download-btn" download>
+              <span>⬇️</span> Download Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    © 2025 Chemista Academy | <a href="https://ahmedshah-portfolio.netlify.app/" target="_blank">Designed by Ahmed Shah</a>
+  </footer>
+
+  <script>
+    // Filter functionality
+    const filterChips = document.querySelectorAll('.chip');
+    const bookCards = document.querySelectorAll('.book-card');
+    const sections = document.querySelectorAll('.category-section');
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        // Remove active from all chips
+        filterChips.forEach(c => c.classList.remove('active'));
+        // Add active to clicked chip
+        chip.classList.add('active');
+        
+        const filter = chip.dataset.filter;
+        
+        // Filter books
+        bookCards.forEach(card => {
+          if (filter === 'all' || card.dataset.subject === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      
+      bookCards.forEach(card => {
+        const title = card.querySelector('.book-title').textContent.toLowerCase();
+        const author = card.querySelector('.book-author').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || author.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
