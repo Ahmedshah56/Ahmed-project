@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expert study tips, exam strategies, and educational insights for IGCSE, O-Levels, A-Levels, and GCSE students. Learn from chemistry, physics, biology, and math experts.">
+    <meta name="keywords" content="A-Levels tips, IGCSE study guide, O-Levels preparation, GCSE exam tips, chemistry blog, physics study tips, biology notes, mathematics help">
+    <meta name="author" content="Chemista Academy">
+    <meta property="og:title" content="Chemista Academy Blog - Study Tips & Exam Strategies">
+    <meta property="og:description" content="Expert educational content for A-Levels, IGCSE, O-Levels, and GCSE students">
+    <meta property="og:image" content="./Img/Logo.jpeg">
+    <meta property="og:type" content="website">
+    <title>Chemista Academy Blog - Study Tips, Exam Strategies & Educational Insights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1e3a5f;
+            --yellow: #f7ce46;
+            --white: #ffffff;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --shadow: 0 4px 15px rgba(30, 58, 95, 0.08);
+            --shadow-lg: 0 8px 25px rgba(30, 58, 95, 0.12);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--navy) 0%, #2d5990 100%);
+            color: white;
+            padding: 16px 24px;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .logo-text p {
+            font-size: 13px;
+            margin-top: 2px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        .back-btn {
+            background: var(--yellow);
+            color: var(--navy);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(247, 206, 70, 0.3);
+        }
+        
+        .back-btn:hover {
+            background: #ffd54f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(247, 206, 70, 0.4);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-banner {
+            background: linear-gradient(135deg, var(--navy), #2d5990);
+            padding: 60px 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(247,206,70,0.1)"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-banner h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--yellow);
+            margin-bottom: 15px;
+        }
+        
+        .hero-banner p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .search-filter-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 14px 24px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus-within {
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .search-box input {
+            border: 0;
+            outline: none;
+            font-size: 15px;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+        }
+        
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .filter-categories {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .category-chip {
+            background: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .category-chip:hover, .category-chip.active {
+            background: var(--yellow);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .category-chip.active {
+            background: var(--navy);
+            color: var(--yellow);
+            border-color: var(--yellow);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            animation: zoomIn 0.6s ease-out backwards;
+            cursor: pointer;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        .blog-card:nth-child(4) { animation-delay: 0.4s; }
+        .blog-card:nth-child(5) { animation-delay: 0.5s; }
+        .blog-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--navy), #2d5990);
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        
+        .blog-category {
+            background: var(--yellow);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .blog-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: var(--yellow);
+            transform: translateX(5px);
+        }
+        
+        .featured-post {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--navy), #2d5990);
+        }
+        
+        .featured-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-badge {
+            background: var(--yellow);
+            color: var(--navy);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--navy), #2d5990);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .newsletter-section h2 {
+            font-size: 32px;
+            color: var(--yellow);
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-section p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: none;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .newsletter-form button {
+            padding: 14px 32px;
+            border-radius: 50px;
+            border: none;
+            background: var(--yellow);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #ffd54f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(247, 206, 70, 0.4);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+        
+        .page-btn {
+            padding: 10px 18px;
+            border-radius: 8px;
+            background: white;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .page-btn:hover, .page-btn.active {
+            background: var(--navy);
+            color: var(--yellow);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 24px;
+            background: var(--navy);
+            color: white;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+        
+        footer a {
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #ffd54f;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-banner h1 {
+                font-size: 28px;
+            }
+            
+            .hero-banner p {
+                font-size: 16px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-image {
+                min-height: 250px;
+            }
+            
+            .featured-content {
+                padding: 25px;
+            }
+            
+            .search-filter-section {
+                flex-direction: column;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+            
+            .filter-categories {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .newsletter-section {
+                padding: 30px 20px;
+            }
+            
+            .newsletter-section h2 {
+                font-size: 24px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="./Img/Logo.jpeg" alt="Chemista Academy" class="logo-img">
+                <div class="logo-text">
+                    <h1>Chemista Academy Blog</h1>
+                    <p>Educational Insights & Study Tips</p>
+                </div>
+            </div>
+            <a href="index.html" class="back-btn">⬅ Back to Home</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h1>📚 Educational Blog</h1>
+                <p>Expert study tips, exam strategies, and insights for A-Levels, IGCSE, O-Levels, and GCSE students</p>
+            </div>
+        </div>
+
+        <div class="search-filter-section">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" id="blogSearch" placeholder="Search articles...">
+            </div>
+            <div class="filter-categories">
+                <div class="category-chip active" data-category="all">All Posts</div>
+                <div class="category-chip" data-category="study-tips">Study Tips</div>
+                <div class="category-chip" data-category="exam-prep">Exam Prep</div>
+                <div class="category-chip" data-category="chemistry">Chemistry</div>
+                <div class="category-chip" data-category="physics">Physics</div>
+                <div class="category-chip" data-category="biology">Biology</div>
+                <div class="category-chip" data-category="mathematics">Mathematics</div>
+            </div>
+        </div>
+
+        <div class="blog-grid" id="blogGrid">
+            <!-- Featured Post -->
+            <article class="featured-post" data-category="study-tips">
+                <img src="https://via.placeholder.com/600x400/1e3a5f/f7ce46?text=Featured+Post" alt="Featured" class="featured-image">
+                <div class="featured-content">
+                    <span class="featured-badge">⭐ Featured</span>
+                    <span class="blog-category">Study Tips</span>
+                    <h2 class="blog-title">10 Proven Study Techniques to Ace Your A-Levels</h2>
+                    <p class="blog-excerpt">Discover the most effective study methods used by top-performing students. From active recall to spaced repetition, learn how to maximize your learning potential and achieve exceptional results.</p>
+                    <div class="blog-meta">
+                        <span class="meta-item">📅 Nov 8, 2025</span>
+                        <span class="meta-item">⏱️ 5 min read</span>
+                        <span class="meta-item">👤 Dr. Ahmed Khan</span>
+                    </div>
+                    <a href="#" class="read-more">Read Full Article →</a>
+                </div>
+            </article>
+
+            <!-- Blog Posts -->
+            <article class="blog-card" data-category="chemistry">
+                <img src="https://via.placeholder.com/400x240/1e3a5f/f7ce46?text=Chemistry+Tips" alt="Chemistry" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-category">Chemistry</span>
+                    <h3 class="blog-title">Mastering Organic Chemistry for A-Levels</h3>
+                    <p class="blog-excerpt">Essential tips and tricks to understand reaction mechanisms and ace your organic chemistry exams.</p>
+                    <div class="blog-meta">
+                        <span class="meta-item">📅 Nov 5, 2025</span>
+                        <span class="meta-item">⏱️ 4 min read</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="exam-prep">
+                <img src="https://via.placeholder.com/400x240/1e3a5f/f7ce46?text=Exam+Strategy" alt="Exam Prep" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-category">Exam Prep</span>
+                    <h3 class="blog-title">Last-Minute Exam Revision Strategies</h3>
+                    <p class="blog-excerpt">Effective techniques to revise efficiently when time is running out before your exams.</p>
+                    <div class="blog-meta">
+                        <span class="meta-item">📅 Nov 3, 2025</span>
+                        <span class="meta-item">⏱️ 6 min read</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="physics">
+                <img src="https://via.placeholder.com/400x240/1e3a5f/f7ce46?text=Physics+Guide" alt="Physics" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-category">Physics</span>
+                    <h3 class="blog-title">Understanding Quantum Physics: A Beginner's Guide</h3>
+                    <p class="blog-excerpt">Break down complex quantum concepts into easy-to-understand explanations for A-Level students.</p>
+                    <div class="blog-meta">
+                        <span class="meta-item">📅 Nov 1, 2025</span>
+                        <span class="meta-item">⏱️ 7 min read</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="biology">
+                <img src="https://via.placeholder.com/400x240/1e3a5f/f7ce46?text=Biology+Notes" alt="Biology" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-category">Biology</span>
+                    <h3 class="blog-title">Cell Biology: Complete Study Notes</h3>
+                    <p class="blog-excerpt">Comprehensive guide to cell structure, function, and processes for IGCSE and A-Level students.</p>
+                    <div class="blog-meta">
+                        <span class="meta-item">📅 Oct 28, 2025</span>
+                        <span class="meta-item">⏱️ 8 min read</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="mathematics">
+                <img src="https://via.placeholder.com/400x240/1e3a5f/f7ce46?text=Math+Tips" alt="Mathematics" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-category">Mathematics</span>
+                    <h3 class="blog-title">Calculus Made Easy: Step-by-Step Guide</h3>
+                    <p class="blog-excerpt">Master differentiation and integration with clear explanations and practice problems.</p>
+                    <div class="blog-meta">
+                        <span class="meta-item">📅 Oct 25, 2025</span>
+                        <span class="meta-item">⏱️ 6 min read</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="study-tips">
+                <img src="https://via.placeholder.com/400x240/1e3a5f/f7ce46?text=Time+Management" alt="Study Tips" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-category">Study Tips</span>
+                    <h3 class="blog-title">Time Management for Busy Students</h3>
+                    <p class="blog-excerpt">Learn how to balance studies, extracurriculars, and personal time effectively.</p>
+                    <div class="blog-meta">
+                        <span class="meta-item">📅 Oct 22, 2025</span>
+                        <span class="meta-item">⏱️ 5 min read</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+        </div>
+
+        <div class="pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">Next →</button>
+        </div>
+
+        <section class="newsletter-section">
+            <h2>📧 Subscribe to Our Newsletter</h2>
+            <p>Get the latest study tips, exam strategies, and educational content delivered to your inbox</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        © 2025 Chemista Academy | <a href="https://ahmedshah-portfolio.netlify.app/" target="_blank">Designed by Ahmed Shah</a>
+    </footer>
+
+    <script>
+        // Category Filter
+        const categoryChips = document.querySelectorAll('.category-chip');
+        const blogCards = document.querySelectorAll('.blog-card, .featured-post');
+
+        categoryChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                categoryChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                
+                const category = chip.dataset.category;
+                
+                blogCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = card.classList.contains('featured-post') ? 'grid' : 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('blogSearch');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            blogCards.forEach(card => {
+                const title = card.querySelector('.blog-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                    card.style.display = card.classList.contains('featured-post') ? 'grid' : 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Newsletter Form
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            alert(`Thank you for subscribing! We'll send updates to ${email}`);
+            e.target.reset();
+        });
+
+        // Pagination
+        const pageButtons = document.querySelectorAll('.page-btn');
+        pageButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                pageButtons.forEach(b => b.classList.remove('active'));
+                if (!btn.textContent.includes('→')) {
+                    btn.classList.add('active');
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
